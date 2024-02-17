@@ -1,0 +1,3 @@
+#about-section button:hover > img {
+  @apply translate-y-1/4;
+}
