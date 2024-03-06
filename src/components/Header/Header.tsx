@@ -14,50 +14,50 @@ const Header = () => {
   return (
     <header
       id="Header"
-      className={`w-[100%] h-[15svh] bg-[#ffffff80] text-black border-solid border-b-[1px] border-black/[.20] flex backdrop-blur-[10px] items-center justify-center px-[2.5vw] select-none sm:fixed xs:sticky top-0 left-0 z-[100] `}
+      className={`py-[3vh] px-[2vw] z-[100] grid bg-[#ffffff80] w-full sticky sm:fixed top-0 left-0 border-solid border-b-[1px] border-black/[.20] backdrop-blur-[10px] select-none justify-center  content-center grid-cols-header-cols-2 md:grid-cols-header-cols-3 max-md:px-[2.5vw]`}
     >
       <a
-        className={`xs:h-[40%] sm:h-[60%] flex items-end justify-center /border-2 absolute xs:left-[3.5vw] md:left-[2.5vw]`}
+        className={`justify-self-start self-center -border-2  sxs:w-full sm:w-3/5  md:w-[80%] items-start flex justify-center`}
         href="/"
       >
-        <img className="h-[100%] bg-cover" src={Logo} alt="Logo Geocoder" />
+        <img className="w-full object-contain" src={Logo} alt="Logo Geocoder" />
       </a>
 
-      <NavBar className="xs:hidden md:flex lg:flex md:w-[40%] lg:w-[45%] /border-2 justify-self-center flex items-center justify-between lg:text-[1.2rem] sm:text-[1rem]" />
+      <NavBar className="justify-self-center sxs:hidden md:flex lg:flex md:w-[65%] -border-2 flex items-center justify-between md:text-[0.8rem] lg:text-[1.1rem]" />
 
       <div
-        className={`lg:w-36 sm:w-32 /border-2 absolute xs:right-[3.5vw] md:right-[2.5vw] flex items-center justify-between`}
+        className={`-border-2 self-center justify-self-end w-[68%] flex items-center sxs:justify-end md:justify-between max-md:h-[70%]`}
       >
-        {/* <button className="py-1 px-3 rounded-md bg-[#3951C2] text-white">Descargar CV</button> */}
+        {/* <button className="py-1 px-3 rounded-full bg-[#3951C2] text-white">Descargar CV</button> */}
 
-        <div className=" bg-gray-300 py-[0.15rem] rounded-xl">
+        <div className="overflow-hidden sxs:hidden md:flex bg-gray-300 py-[0.3vh] rounded-[0.8vw] px-1  items-center justify-center">
           <LanguageSelect
             id="language1"
-            className="outline-none bg-transparent cursor-pointer appearance-none shadow-none /border-2 px-4  sm:text-[1rem] md:text-[1.1rem] xl:text-[1.2rem] xs:hidden md:block"
+            className="-border-2 outline-none px-2 text-center bg-transparent cursor-pointer appearance-none shadow-none md:text-[0.8rem] lg:text-[1rem] xl:text-xl"
           />
         </div>
 
         <ThemeSwitcher
           id="theme1"
-          className="xs:hidden md:block w-[3.5rem] aspect-[4/1.1] text-[1rem] bg-gray-300  rounded-lg relative cursor-pointer"
+          className="sxs:hidden md:block w-[4vw] text-[1.1vw] aspect-[4/1.1] bg-gray-300 rounded-full relative cursor-pointer"
         />
 
         <button
-          className={`aspect-square w-14 flex flex-col items-center justify-center gap-2 /border-2 py-1 rounded-[50%] xs:flex md:hidden z-[102]`}
+          className={`aspect-square z-[102] border-2flex flex-col items-center justify-center  sxs:flex md:hidden sxs:w-1/3 sm:w-1/5 md:w-0 gap-[23%]`}
           onClick={handdleOpenedMenu}
         >
           <div
-            className={`bg-black w-[60%] h-1 origin-left rounded-md transition-all duration-100 ${
+            className={`bg-black w-full h-[12%] origin-left rounded-md transition-all duration-100 ${
               openedMenu! && "rotate-45 bg-white"
             }`}
           ></div>
           <div
-            className={`bg-black w-[60%] h-1 origin-left rounded-md transition-all duration-100 ${
+            className={`bg-black w-full h-[12%] origin-left rounded-md transition-all duration-100 ${
               openedMenu! && "opacity-0 bg-white"
             }`}
           ></div>
           <div
-            className={`bg-black w-[60%] h-1 origin-left rounded-md transition-all duration-100 ${
+            className={`bg-black w-full h-[12%] origin-left rounded-md transition-all duration-100 ${
               openedMenu! && "-rotate-45 bg-white"
             }`}
           ></div>
@@ -65,24 +65,26 @@ const Header = () => {
       </div>
 
       <div
-        className={`flex flex-col items-center justify-start transition-all duration-200 bg-black text-white absolute top-0 left-0 w-[100%] h-[100dvh]  ${
-          openedMenu ? "animate-in fade-in-0 duration-50 ease-linear" : "opacity-0 z-[-2] hidden"
+        className={`flex flex-col items-center justify-start transition-all duration-200 -border-2 bg-black text-white absolute top-0 left-0 w-[100%] h-[100dvh]  ${
+          openedMenu
+            ? "animate-in fade-in-0 duration-50 ease-linear"
+            : "opacity-0 z-[-2] hidden"
         }`}
       >
         <NavBar
-          className={`flex flex-col items-center text-3xl justify-between text-white w-[100%] h-[60%] mt-[15vh]`}
+          className={`flex flex-col items-center portrait:text-3xl landscape:text-2xl -border-2 justify-between text-white w-[100%] h-[60%] mt-[15vh]`}
         />
-        <div className="flex items-center justify-evenly w-full h-[15%] border-t-[1px] border-[#ffffff50] mt-[15%]">
+        <div className="flex items-center justify-around w-full portrait:h-[15%] landscape:h-[25%] border-t-[1px] border-[#ffffff50] portrait:mt-[15%] landscape:mt-[5%]">
           <div className=" bg-white py-[0.15rem] rounded-xl text-black">
             <LanguageSelect
               id="language1"
-              className="outline-none bg-transparent cursor-pointer appearance-none shadow-none /border-2 px-4  sm:text-[1rem] md:text-[1.1rem] xl:text-[1.2rem]"
+              className="outline-none bg-transparent cursor-pointer appearance-none shadow-none /border-2 px-4  sxs:text-[1.2rem] md:text-[1.3rem] xl:text-[1.4rem]"
             />
           </div>
 
           <ThemeSwitcher
             id="theme2"
-            className="w-[4.2rem] aspect-[4/1.1] text-[1.6rem] bg-gray-600 rounded-lg relative cursor-pointer"
+            className="w-[4.5rem] aspect-[4/1.1] text-[1.6rem] bg-gray-600 rounded-lg relative cursor-pointer"
             ballColor="white"
             iconColor="black"
           />

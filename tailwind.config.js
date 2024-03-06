@@ -6,15 +6,21 @@ export default {
 
   theme: {
     screens: {
-      xs: "100px",
+      sxs: "0px",
+      xs: "300px",
       sm: "480px",
       md: "768px",
       lg: "976px",
       xl: "1440px",
-      portrait: {'raw': '(orientation: portrait)'},
-      landscape: {'raw': '(orientation: landscape)'},
-      "small-height": {'raw': '(min-aspect-ratio: 2.55/1)'}
-      
+      "max-xs": { max: "200px" },
+      "max-sm": { max: "480px" },
+      "max-md": { max: "768px" },
+      "max-lg": { max: "976px" },
+      "pseudo-portrait": { raw: "(max-aspect-ratio: 1.4/1)" },
+      portrait: { raw: "(orientation: portrait)" },
+      landscape: { raw: "(orientation: landscape)" },
+      "small-height": { raw: "(min-aspect-ratio: 2.55/1)" },
+      "min-h-1000": { "min-height": "1000px" },
     },
     extend: {
       colors: {
@@ -29,6 +35,10 @@ export default {
         "cerulean-blue-800": "#33429a",
         "cerulean-blue-900": "#2d3a7b",
         "cerulean-blue-950": "#20264b",
+      },
+      gridTemplateColumns: {
+        "header-cols-3": "1fr 4fr 1fr",
+        "header-cols-2": "1fr 1fr",
       },
     },
   },
