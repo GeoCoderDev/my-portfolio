@@ -1,5 +1,7 @@
 import "./AboutSection.css";
 import Arrow_Down from "../../../public/images/svg/Flecha hacia abajo.svg";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 const Fondo = () => (
   <svg
@@ -33,12 +35,39 @@ const Fondo = () => (
 );
 
 const AboutSection = () => {
+  const headerHeight = useSelector((state: RootState) => state.headerHeight);
+
+  const homeSectionHeight = useSelector(
+    (state: RootState) => state.homeSectionHeight
+  );
+
+  const header = document.getElementById("Header");
+
   return (
-    <section
-      id="about-section"
-    >
-      
-    </section>
+    <>
+      <section id="about-section" className="w-full absolute left-0">
+        <Fondo />
+        <div></div>
+      </section>
+
+      <style>
+        {`
+
+          #about-section{
+            top: calc(${homeSectionHeight * 0.854}px);
+            height: ${homeSectionHeight}px;
+            ${
+              header &&
+              getComputedStyle(header!).position === "sticky"
+                ? `margin-top:${headerHeight}px;`
+                : ""
+            } 
+            
+          }
+
+        `}
+      </style>
+    </>
   );
 };
 

@@ -1,34 +1,45 @@
-import "./HomeSection.css";
+import { useDispatch, useSelector } from "react-redux";
 import Bagde from "../Badge/Bagde";
 import Glow from "../Glow/Glow";
-import { useEffect, useState } from "react";
+import { AppDispatch, RootState } from "../../store";
+import { useEffect } from "react";
+import { setHomeSectionHeight } from "../../state/homeSectionHeight/homeSectionHeightSlice";
 
 const factorDeCrecimiento = 1.2;
 
 const HomeSection = () => {
-  const [headerHeight, setHeaderHeight] = useState<number>(60);
+  
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    const ResizeHeaderObserver = new ResizeObserver((entries) =>
-      entries.forEach((entry) =>
-        setHeaderHeight(parseFloat(getComputedStyle(entry.target).height))
-      )
+
+    const homeSection = document.getElementById("home-section");
+
+    const ResizeHomeSectionObserver = new ResizeObserver((entries) =>
+      entries.forEach((entry) => {
+        dispatch(
+          setHomeSectionHeight({
+            value: parseFloat(getComputedStyle(entry.target).height),
+          })
+        );
+      })
     );
 
-    const header = document.getElementById("Header");
-    ResizeHeaderObserver.observe(header!);
+    ResizeHomeSectionObserver.observe(homeSection!);
 
-    return () => ResizeHeaderObserver.unobserve(header!);
+    return () => ResizeHomeSectionObserver.unobserve(homeSection!);
   }, []);
+
+  const headerHeight = useSelector((state: RootState) => state.headerHeight);
 
   return (
     <>
       <section
         id="home-section"
-        className={`-border-2 -bg-black border-purple-500 flex flex-wrap w-full items-center content-evenly justify-center sm:justify-evenly portrait:px-8`}
+        className={`-border-2 -bg-black border-purple-500 flex flex-wrap w-full items-center content-evenly justify-center sm:justify-evenly portrait:px-8 py-[14.6%]`}
       >
         <div className="-border-2 border-green-500 sxs:h-64 lg:h-[21rem] xl:h-[28rem] flex items-center justify-center relative">
-          <Glow className="-border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square z-[4] sxs:h-[110%] sm:h-full lg:h-[120%]" />
+          <Glow className="-border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square z-[4] sxs:h-full lg:h-[120%] xl:h-[125%]" />
           <img
             className="aspect-auto h-full z-[5]"
             src="/images/png/Foto Presentacion.png"
@@ -44,7 +55,7 @@ const HomeSection = () => {
             JUAN CHAVEZ
           </h1>
           <Bagde
-            className="text-white font-bold px-2 py-1 text-sm lg:text-xl xl:text-2xl"
+            className="text-white text-center font-bold px-2 py-1 text-sm lg:text-xl xl:text-2xl"
             text="Fullstack Developer"
           />
 
@@ -78,8 +89,8 @@ const HomeSection = () => {
         {`
 
           #home-section{
-            padding-top: 3vh;
-            padding-bottom: 3vh;
+            padding-top: 5vh;
+            padding-bottom: 5vh;
             min-height: 45svh;
           }
 
@@ -89,11 +100,13 @@ const HomeSection = () => {
             }
           }
 
+
           @media (min-width:480px){
+
             #home-section{                              
               padding-top: ${headerHeight * factorDeCrecimiento}px;
               padding-bottom: ${headerHeight * factorDeCrecimiento}px;
-
+  
             }
 
             @media (max-height: 1000px){

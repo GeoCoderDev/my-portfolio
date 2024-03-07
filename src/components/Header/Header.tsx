@@ -1,8 +1,11 @@
 import Logo from "../../../public/images/svg/Logo v2.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "../NavBar/NavBar";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
+import { setHeaderHeight } from "../../state/headerHeight/headerHeightSlice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
 
 const Header = () => {
   const [openedMenu, setOpenedMenu] = useState(false);
@@ -10,6 +13,26 @@ const Header = () => {
   const handdleOpenedMenu = () => {
     setOpenedMenu((op) => !op);
   };
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    const ResizeHeaderObserver = new ResizeObserver((entries) =>
+      entries.forEach((entry) =>
+        dispatch(
+          setHeaderHeight({
+            value: parseFloat(getComputedStyle(entry.target).height),
+          })
+        )
+      )
+    );
+
+    const header = document.getElementById("Header");
+
+    ResizeHeaderObserver.observe(header!);
+
+    return () => ResizeHeaderObserver.unobserve(header!);
+  }, []);
 
   return (
     <header
@@ -72,9 +95,9 @@ const Header = () => {
         }`}
       >
         <NavBar
-          className={`flex flex-col items-center portrait:text-3xl landscape:text-2xl -border-2 justify-between text-white w-[100%] h-[60%] mt-[15vh]`}
+          className={`scrollbar-oculto flex flex-col items-center portrait:text-3xl landscape:text-2xl -border-2 justify-between text-white max-w-full px-6 h-[60%] mt-[15vh] max-h-[60%]`}
         />
-        <div className="flex items-center justify-around w-full portrait:h-[15%] landscape:h-[25%] border-t-[1px] border-[#ffffff50] portrait:mt-[15%] landscape:mt-[5%]">
+        <div className=" scrollbar-oculto flex items-center justify-around w-full portrait:h-[15%] landscape:h-[25%] border-t-[1px] border-[#ffffff50] portrait:mt-[15%] landscape:mt-[5%] overflow-hidden">
           <div className=" bg-white py-[0.15rem] rounded-xl text-black">
             <LanguageSelect
               id="language1"
