@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <header
       id="Header"
-      className={`py-[3vh] px-[2vw] z-[100] grid bg-[#ffffff80] w-full sticky sm:fixed top-0 left-0 border-solid border-b-[1px] border-black/[.20] backdrop-blur-[10px] select-none justify-center  content-center grid-cols-header-cols-2 md:grid-cols-header-cols-3 max-md:px-[2.5vw]`}
+      className={`py-[3vh] px-[2vw] z-[100] grid bg-[#ffffff80] w-full fixed top-0 left-0 border-solid border-b-[1px] border-black/[.20] backdrop-blur-[10px] select-none justify-center  content-center grid-cols-header-cols-2 md:grid-cols-header-cols-3 max-md:px-[2.5vw]`}
     >
       <a
         className={`justify-self-start self-center -border-2  sxs:w-full sm:w-3/5  md:w-[80%] items-start flex justify-center`}

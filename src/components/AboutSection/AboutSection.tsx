@@ -55,14 +55,7 @@ const AboutSection = () => {
 
           #about-section{
             top: calc(${homeSectionHeight * 0.854}px);
-            height: ${homeSectionHeight}px;
-            ${
-              header &&
-              getComputedStyle(header!).position === "sticky"
-                ? `margin-top:${headerHeight}px;`
-                : ""
-            } 
-            
+            height: ${homeSectionHeight}px;                      
           }
 
         `}

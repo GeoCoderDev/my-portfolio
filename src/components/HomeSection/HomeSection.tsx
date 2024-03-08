@@ -8,11 +8,13 @@ import { setHomeSectionHeight } from "../../state/homeSectionHeight/homeSectionH
 const factorDeCrecimiento = 1.2;
 
 const HomeSection = () => {
-  
   const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
+  const homeSectionHeight = useSelector(
+    (state: RootState) => state.homeSectionHeight
+  );
 
+  useEffect(() => {
     const homeSection = document.getElementById("home-section");
 
     const ResizeHomeSectionObserver = new ResizeObserver((entries) =>
@@ -38,7 +40,7 @@ const HomeSection = () => {
         id="home-section"
         className={`-border-2 -bg-black border-purple-500 flex flex-wrap w-full items-center content-evenly justify-center sm:justify-evenly portrait:px-8 py-[14.6%]`}
       >
-        <div className="-border-2 border-green-500 sxs:h-64 lg:h-[21rem] xl:h-[28rem] flex items-center justify-center relative">
+        <div className="-border-2 border-green-500 sxs:h-[16.5rem] lg:h-[21rem] xl:h-[28rem] flex items-center justify-center relative">
           <Glow className="-border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square z-[4] sxs:h-full lg:h-[120%] xl:h-[125%]" />
           <img
             className="aspect-auto h-full z-[5]"
@@ -47,15 +49,15 @@ const HomeSection = () => {
           />
         </div>
 
-        <div className="flex items-center md:items-start justify-center gap-2 lg:gap-5 xl:gap-8 flex-col -border-2 order-2">
-          <h1 className="text-3xl lg:text-5xl xl:text-6xl -border-2 text-center">
+        <div className="flex items-center md:items-start justify-center gap-3 lg:gap-5 xl:gap-8 flex-col -border-2 order-2">
+          <h1 className="text-[1.9rem] leading-8 lg:text-5xl xl:text-6xl -border-2 text-center">
             HOLA, SOY
           </h1>
-          <h1 className="text-3xl lg:text-5xl xl:text-6xl -border-2 text-cerulean-blue-700 text-center">
+          <h1 className="text-[1.9rem] leading-8 lg:text-5xl xl:text-6xl -border-2 text-cerulean-blue-700 text-center">
             JUAN CHAVEZ
           </h1>
           <Bagde
-            className="text-white text-center font-bold px-2 py-1 text-sm lg:text-xl xl:text-2xl"
+            className="text-white text-center font-bold px-2 py-1 text-[1rem] lg:text-xl xl:text-2xl"
             text="Fullstack Developer"
           />
 
@@ -89,14 +91,18 @@ const HomeSection = () => {
         {`
 
           #home-section{
-            padding-top: 5vh;
-            padding-bottom: 5vh;
-            min-height: 45svh;
+            padding-top:  ${
+              (window.visualViewport?.height && (homeSectionHeight > window.visualViewport?.height))
+                ? headerHeight * factorDeCrecimiento
+                : headerHeight * 1
+            }px;
+            padding-bottom: 12%;
+            min-height: 50svh;
           }
 
           @media (max-height: 1000px){
             #home-section{                        
-              min-height: calc(100svh - ${headerHeight}px);                  
+              min-height: 100svh;                  
             }
           }
 
@@ -107,12 +113,6 @@ const HomeSection = () => {
               padding-top: ${headerHeight * factorDeCrecimiento}px;
               padding-bottom: ${headerHeight * factorDeCrecimiento}px;
   
-            }
-
-            @media (max-height: 1000px){
-              #home-section{                            
-                min-height: 100svh;           
-              }
             }
           }        
         `}
