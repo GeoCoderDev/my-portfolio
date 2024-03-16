@@ -20,13 +20,17 @@
   overflow-y: scroll;
 }
 
-.scrollbar-oculto::-webkit-scrollbar {
+.scrollbar-stilizado::-webkit-scrollbar, .scrollbar-oculto::-webkit-scrollbar {
   width: 0.5rem;  
 }
 
-.scrollbar-oculto::-webkit-scrollbar-thumb {
+.scrollbar-stilizado::-webkit-scrollbar-thumb , .scrollbar-oculto::-webkit-scrollbar-thumb {
   background-color: #888; /* Color del thumb */
   border-radius: 0.4rem; /* Bordes redondeados */
+}
+
+.scrollbar-stilizado-white::-webkit-scrollbar-thumb{
+  background-color: #fff;
 }
 
 .scrollbar-oculto::-webkit-scrollbar-thumb:hover {

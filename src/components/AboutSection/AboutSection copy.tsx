@@ -43,7 +43,7 @@ const AboutSection = () => {
         {/* <div className="absolute border-[4px] rounded-[50%] w-[60%] aspect-square"></div> */}
         <div
           id="about-photo"
-          className="z-[15] relative h-[100%] bg-white -p-2 flex rounded-[50%] aspect-square object-contain after:absolute after:h-[95%] after:rounded-[50%] xs:after:border-[2.5px] sm:after:border-[4px] after:border-white after:border-solid after:top-[10%] after:left-[-7%] after: after:aspect-square after:content-[''] after:z-[7]"
+          className="z-[15] relative h-[100%] bg-white -p-2 flex rounded-[50%] aspect-square object-contain after:absolute after:h-[120%] after:rounded-[50%] xs:after:border-[2.5px] sm:after:border-[4px] after:border-white after:border-solid after:top-[10%] after:left-[-7%] after: after:aspect-square after:content-[''] after:z-[7]"
           style={{ boxShadow: "0 0 16px 10px #00000025" }}
         >
           <img
