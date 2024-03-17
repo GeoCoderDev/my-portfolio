@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { raw } from "express";
 import animations from "tailwindcss-animate";
 
 export default {
@@ -21,6 +22,7 @@ export default {
       landscape: { raw: "(orientation: landscape)" },
       "small-height": { raw: "(min-aspect-ratio: 2.55/1)" },
       "min-h-1000": { "min-height": "1000px" },
+      "more-double-height": {raw:"(max-aspect-ratio: 1/2)"}
     },
     extend: {
       colors: {

@@ -45,14 +45,14 @@ const AboutSection = () => {
     <>
       <section
         id="about-section"
-        className="w-full absolute left-0 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] xs:grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] z-[6] max-md:px-[3.5%]"
+        className="w-full absolute left-0 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] xs:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] z-[6] max-xs:px-[1.5%] max-md:px-[3.5%]"
       >
         <Fondo />
 
         {/* <div> */}
         <div className="-border-2 relative z-[7] flex items-center justify-center self-stretch justify-self-center">
           {/* AQUI NO SE PORQUE , PERO EL FLEX HACE QUE EL PSEUDOELEMENTO SE POSICIONE DEBAJO */}
-          <div className="flex z-[15] sxs:w-[7rem] xs:w-[11rem] sm:w-[13rem] md:w-[18rem]: lg:w-[20rem] relative aspect-square object-contain after:absolute after:h-[100%] after:rounded-[50%] after:border-[0.3rem] after:border-white after:aspect-square after:z-[7] after:left-[-7%] after:top-[5.5%]">
+          <div className="flex z-[15] sxs:w-[7rem] xs:w-[11rem] xs:more-double-height:w-[13.5rem] sm:w-[14rem] md:w-[18rem]: lg:w-[20rem] relative aspect-square object-contain after:absolute after:h-[100%] after:rounded-[50%] after:border-[0.3rem] after:border-white after:aspect-square after:z-[7] after:left-[-7%] after:top-[5.5%]">
             <img
               src="/images/png/Foto Presentacion.png"
               alt="Foto Geocoder"
@@ -63,7 +63,7 @@ const AboutSection = () => {
 
         <div
           id="text-about"
-          className="z-[16] -border-2 flex flex-col items-center justify-center max-sm:gap-4 gap-6 py-7 relative self-stretch overflow-auto"
+          className="z-[16] -border-2 flex flex-col items-center justify-center max-sm:gap-4 gap-6 pt-6 relative self-stretch overflow-auto "
         >
           <h1 className="-border-2 text-white max-sm:text-3xl text-4xl md:self-start ">
             Sobre mi
@@ -71,7 +71,7 @@ const AboutSection = () => {
 
           <p
             id="text-about-description"
-            className="scrollbar-stilizado scrollbar-stilizado-white overflow-auto text-white max-sm:text-center text-start sxs:text-[0.8rem] md:text-[1rem] max-w-[80%] md:self-start pr-[0.85rem]"
+            className="scrollbar-stilizado scrollbar-stilizado-white overflow-auto text-white max-sm:text-center text-start sxs:text-[0.77rem] md:text-[1rem] max-w-[95%] md:max-w-[85%] md:self-start pr-[0.85rem]"
           >
             ¡Soy Juan! actualmente me encuentro estudiando Ing. de Sistemas, y
             desde el 2022 me empeze a interesar en todo lo que es la web, por lo
@@ -102,10 +102,10 @@ const AboutSection = () => {
       <style>
         {`
           #about-section{
-            padding-top: calc(${homeSectionHeight * 0.146}px);
-            padding-bottom: calc(${homeSectionHeight * 0.12}px);
-            top: calc(${homeSectionHeight * 0.854}px);
             height: ${homeSectionHeight}px;                      
+            padding-top: calc(${homeSectionHeight * 0.146}px);
+            padding-bottom: calc(${homeSectionHeight * 0.15}px);
+            top: calc(${homeSectionHeight * 0.854}px);
           }
 
 
