@@ -6,11 +6,11 @@ import SkillsSection from "./components/SkillsSection/SkillsSection";
 
 function App() {
   return (
-    <main className="overflow-x-hidden overflow-y-visible">
+    <main className="contents overflow-x-hidden overflow-y-visible">
       <Header />
       <HomeSection />
       <AboutSection />
-      <ProyectsSection />
+      <ProyectsSection proyectsAmount={5} />
       <SkillsSection />
     </main>
   );

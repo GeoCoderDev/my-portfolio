@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import url("/fonts/iscocpeur/stylesheet.css");
 
+body{
+  width: 100vw;
+}
+
 * {
   margin: 0;
   padding: 0;

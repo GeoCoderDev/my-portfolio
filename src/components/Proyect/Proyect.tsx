@@ -1,7 +1,9 @@
 const Proyect = () => {
   return (
     <>
-      <div className="proyect semi-transparent-border-black border-2 h-full w-[70%] rounded-[1rem]"></div>
+      <div className="min-w-full h-full flex justify-center">
+        <div className="proyect semi-transparent-border-black -border-2 h-full w-[70%] rounded-[1rem]"></div>
+      </div>
 
       <style>{`
       

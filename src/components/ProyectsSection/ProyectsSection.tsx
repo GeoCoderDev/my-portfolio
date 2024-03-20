@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import Proyect from "../Proyect/Proyect";
 import { AppDispatch, RootState } from "../../store";
-import { useEffect } from "react";
+import { Ref, RefObject, useEffect, useRef } from "react";
 import { setBackgroundProyectsHeight } from "../../state/proyectsBackground/backgroundProyectHeight";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const BackgroundColourBalls = () => {
   const homeSectionHeight = useSelector(
@@ -27,7 +28,9 @@ const BackgroundColourBalls = () => {
 
     resizeObserver.observe(backgroundColourBalls!);
 
-    return () => {resizeObserver.unobserve(backgroundColourBalls!)};
+    return () => {
+      resizeObserver.unobserve(backgroundColourBalls!);
+    };
   }, []);
 
   return (
@@ -43,7 +46,7 @@ const BackgroundColourBalls = () => {
           top:20%;
           left:50%;
           transform: translateX(-50%);
-          overflow: visible;
+          -overflow: visible;
         }    
 
       #background-proyects>div{
@@ -115,7 +118,7 @@ const BackgroundColourBalls = () => {
         @media screen and (max-width: 540px){
           #background-proyects{
               grid-template-columns: repeat(3, 1fr);
-              transform: translateX(-60%)
+              transform: translateX(-50%)
             }
 
             #blue-to-green{
@@ -160,7 +163,7 @@ const BackgroundColourBalls = () => {
     `}</style>
       <div
         id="background-proyects"
-        className="-border-2 border-blue-700 absolute  h-[90%] w-full auto-rows-[0] auto-cols-[0]"
+        className="-border-2 border-blue-700 absolute  h-[90%] w-full auto-rows-[0] auto-cols-[0] overflow-hidden"
       >
         <div id="purple-to-red-container">
           <svg
@@ -318,25 +321,53 @@ const BackgroundColourBalls = () => {
   );
 };
 
-const ProyectsSection = () => {
+const ProyectsSection = ({ proyectsAmount }: { proyectsAmount: number }) => {
+
+  const headerHeight = useSelector((state: RootState)=>state.headerHeight);
+
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
   );
 
+  const ref = useRef<HTMLElement>();
+
+  const { scrollYProgress } = useScroll({
+    target: ref as RefObject<HTMLElement>,
+  });
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", `-${(proyectsAmount - 1) * 100}%`]
+  );
+
   return (
     <>
-      <section
-        id="proyects-section"
-        className={`-border-2 w-full relative flex flex-wrap flex-col items-center justify-evenly`}
+      <motion.section
+        animate={{ y: `${headerHeight*0.5}px` }}
+        style={{ height: `${proyectsAmount * homeSectionHeight}px` }}
+        className=""
+        ref={ref as Ref<HTMLDivElement> | undefined}
       >
-        <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-          Proyectos
-        </h1>
-        <div className="-border-2 w-full h-[70%] flex justify-center">
+        <div
+          id="proyects-section"
+          className={`-border-2 w-full relative flex flex-wrap flex-col items-center justify-evenly`}
+        >
           <BackgroundColourBalls />
-          <Proyect />
+          <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
+            Proyectos
+          </h1>
+          <div className="-border-2 w-full h-[70%] overflow-hidden flex">
+            <motion.div style={{ x }} className="flex h-full min-w-full">
+              <Proyect />
+              <Proyect />
+              <Proyect />
+              <Proyect />
+              <Proyect />
+            </motion.div>
+          </div>
         </div>
-      </section>
+      </motion.section>
 
       <style>
         {`
@@ -345,6 +376,8 @@ const ProyectsSection = () => {
             margin-top: calc(${homeSectionHeight * 0.86}px);
             height: ${homeSectionHeight}px;
             overflow:visible;
+            position: sticky;
+            top:0;
           }          
 
         `}
