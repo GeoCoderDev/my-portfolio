@@ -17,6 +17,8 @@ const Header = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
+
+    
     const ResizeHeaderObserver = new ResizeObserver((entries) =>
       entries.forEach((entry) =>
         dispatch(
@@ -31,13 +33,38 @@ const Header = () => {
 
     ResizeHeaderObserver.observe(header!);
 
+    let prevScrollpos = window.pageYOffset;
+    const scrollThreshold = 100; // Cantidad de píxeles para ocultar/mostrar la barra
+
+    window.onscroll = function () {
+      const currentScrollPos = window.pageYOffset;
+
+      if (prevScrollpos > currentScrollPos) {
+        // El usuario está subiendo
+
+        if (header) {
+          header.style.transform = "translateY(0%)";
+        }
+      } else {
+        // El usuario está bajando
+        if (currentScrollPos > scrollThreshold) {
+          if (header) {
+            header.style.transform = "translateY(-100%)";
+          }
+        }
+      }
+
+      prevScrollpos = currentScrollPos;
+    };
+
     return () => ResizeHeaderObserver.unobserve(header!);
   }, []);
 
   return (
     <header
       id="Header"
-      className={`py-[3vh] px-[2vw] z-[100] grid bg-[#ffffff80] w-full fixed top-0 left-0 border-solid border-b-[1px] border-black/[.20] backdrop-blur-[10px] select-none justify-center  content-center grid-cols-header-cols-2 md:grid-cols-header-cols-3 max-md:px-[2.5vw]`}
+      style={{ transitionDuration: "250ms" }}
+      className={`py-[3vh] px-[2vw] z-[100] grid bg-[#ffffff80] w-full fixed top-0 left-0 border-solid border-b-[1px] border-black/[.20] backdrop-blur-[10px] select-none justify-center  content-center grid-cols-header-cols-2 md:grid-cols-header-cols-3 max-md:px-[2.5vw] transition-all`}
     >
       <a
         className={`justify-self-start self-center -border-2  sxs:w-full sm:w-3/5  md:w-[80%] items-start flex justify-center`}
@@ -96,6 +123,7 @@ const Header = () => {
       >
         <NavBar
           className={`scrollbar-oculto flex flex-col items-center portrait:text-3xl landscape:text-2xl -border-2 justify-between text-white max-w-full px-6 h-[60%] mt-[15vh] max-h-[60%]`}
+          handleOpenNavBar={setOpenedMenu}
         />
         <div className=" scrollbar-oculto flex items-center justify-around w-full portrait:h-[15%] landscape:h-[25%] border-t-[1px] border-[#ffffff50] portrait:mt-[15%] landscape:mt-[5%] overflow-hidden">
           <div className=" bg-white py-[0.15rem] rounded-xl text-black">

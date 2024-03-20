@@ -1,12 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import headerHeightSlice from "../state/headerHeight/headerHeightSlice";
 import homeSectionHeightSlice from "../state/homeSectionHeight/homeSectionHeightSlice";
+import backgroundProyectHeightSlice from "../state/proyectsBackground/backgroundProyectHeight";
 
 
 export const store = configureStore({
     reducer: {
         headerHeight: headerHeightSlice,
-        homeSectionHeight: homeSectionHeightSlice
+        homeSectionHeight: homeSectionHeightSlice,
+        backgroundProyectHeight: backgroundProyectHeightSlice
     }
 })
 

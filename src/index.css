@@ -8,6 +8,7 @@
   padding: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
+
 }
 
 .scrollbar-oculto {
@@ -36,6 +37,9 @@
 }
 
 .scrollbar-oculto::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  
+  background-color: #555;
 }
 
+.semi-transparent-border-black {
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}

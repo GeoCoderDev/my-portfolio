@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-import { raw } from "express";
 import animations from "tailwindcss-animate";
 
 export default {

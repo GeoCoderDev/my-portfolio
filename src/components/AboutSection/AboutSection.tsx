@@ -1,4 +1,3 @@
-import "./AboutSection.css";
 import Arrow_Down from "../../../public/images/svg/Flecha hacia abajo.svg";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -35,7 +34,6 @@ const Fondo = () => (
 );
 
 const AboutSection = () => {
-  // const headerHeight = useSelector((state: RootState) => state.headerHeight);
 
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
@@ -45,7 +43,7 @@ const AboutSection = () => {
     <>
       <section
         id="about-section"
-        className="w-full absolute left-0 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] xs:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))] z-[6] max-xs:px-[1.5%] max-md:px-[3.5%]"
+        className="w-full absolute left-0 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] xs:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] md:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]  z-[6] max-xs:px-[1.5%] max-md:px-[3.5%]"
       >
         <Fondo />
 
@@ -71,7 +69,7 @@ const AboutSection = () => {
 
           <p
             id="text-about-description"
-            className="scrollbar-stilizado scrollbar-stilizado-white overflow-auto text-white max-sm:text-center text-start sxs:text-[0.77rem] md:text-[1rem] max-w-[95%] md:max-w-[85%] md:self-start pr-[0.85rem]"
+            className="scrollbar-stilizado scrollbar-stilizado-white overflow-auto text-white max-sm:text-center text-start sxs:text-[0.77rem] md:text-[0.9rem] max-w-[95%] md:max-w-[85%] md:self-start pr-[0.85rem]"
           >
             ¡Soy Juan! actualmente me encuentro estudiando Ing. de Sistemas, y
             desde el 2022 me empeze a interesar en todo lo que es la web, por lo
@@ -85,8 +83,8 @@ const AboutSection = () => {
             audaces.
           </p>
 
-          <a href="/pdfs/MI CV.pdf" className="md:self-start" download={true}>
-            <button className="text-center text-[1rem] md:text-[1.3rem] bg-white text-black px-3 rounded-md flex items-center transition-all duration-75 py-1 max-lg:landscape:text-[0.8rem] ">
+          <a id="button-cv" href="/pdfs/MI CV.pdf" className="md:self-start" download={true}>
+            <button className="text-center text-[1rem] md:text-[1.1rem] bg-white text-black px-3 rounded-md flex items-center transition-all duration-75 py-1 ">
               Descargar CV
               <img
                 className="h-1/2 aspect-square object-contain ml-2 transition-all duration-75"
@@ -102,10 +100,10 @@ const AboutSection = () => {
       <style>
         {`
           #about-section{
+            top: calc(${homeSectionHeight * 0.854}px);
             height: ${homeSectionHeight}px;                      
             padding-top: calc(${homeSectionHeight * 0.146}px);
             padding-bottom: calc(${homeSectionHeight * 0.15}px);
-            top: calc(${homeSectionHeight * 0.854}px);
           }
 
 
