@@ -65,7 +65,7 @@ const SkillsSection = () => {
           margin-top: ${
             backgroundProyectsHeight > homeSectionHeight
               ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
-              : homeSectionHeight * 0.3
+              : homeSectionHeight * 0.20
           }px;
         }
       }

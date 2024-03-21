@@ -1,16 +1,33 @@
-const Proyect = () => {
+export interface ProyectProps {
+  proyectName: string;
+  description: string;
+  nota?: string;
+}
+
+const Proyect = ({
+  proyectData: { proyectName },
+}: {
+  proyectData: ProyectProps;
+}) => {
   return (
     <>
       <div className="min-w-full h-full flex justify-center">
-        <div className="proyect semi-transparent-border-black -border-2 h-full w-[70%] rounded-[1rem]"></div>
+        <div
+          id={`${proyectName}-container`}
+          className="proyect semi-transparent-border-black -border-2 h-full w-[84%] lg:w-[70%] rounded-[1rem] -grid"
+        >
+          <h3 className="border-2 flex items-center justify-center">
+            {proyectName}
+          </h3>
+        </div>
       </div>
 
-      <style>{`
-      
-        .proyect{
-          backdrop-filter: blur(20px);
-          background-color: #ffffff33; 
-        }
+      <style>{`      
+
+        // #${proyectName}-container{
+
+        // }
+
       
       `}</style>
     </>

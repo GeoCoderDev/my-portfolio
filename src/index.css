@@ -47,3 +47,8 @@ body{
 .semi-transparent-border-black {
   border: 1px solid rgba(0, 0, 0, 0.35);
 }
+
+.proyect{
+  backdrop-filter: blur(20px);
+  background-color: #ffffff33; 
+}

@@ -38,7 +38,6 @@ const HomeSection = () => {
     //   );
     // });
 
-
     return () => ResizeHomeSectionObserver.unobserve(homeSection!);
   }, []);
 
@@ -48,7 +47,7 @@ const HomeSection = () => {
     <>
       <section
         id="home-section"
-        className={`border-2 -bg-black border-purple-500 flex flex-wrap w-[100vw] items-center content-evenly justify-center sm:justify-evenly portrait:px-8 py-[14.6%]`}
+        className={`border-2 -bg-black border-purple-500 flex flex-wrap w-[100vw] max-w-[100vw] items-center content-evenly justify-center sm:justify-evenly portrait:px-8 py-[14.6%]`}
       >
         <div className="-border-2 border-green-500 sxs:h-[12rem] xs:h-[16.5rem] md:h-[18rem] lg:h-[21rem] xl:h-[28rem] flex items-center justify-center relative">
           <Glow className="-border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 aspect-square z-[4] sxs:h-full lg:h-[120%] xl:h-[125%]" />
