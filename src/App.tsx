@@ -8,9 +8,6 @@ import ProyectsSection from "./components/ProyectsSection/ProyectsSection";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
 
 
-
-
-
 function App() {
 
 

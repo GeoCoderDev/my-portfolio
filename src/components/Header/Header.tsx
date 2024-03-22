@@ -20,12 +20,16 @@ const Header = () => {
 
     
     const ResizeHeaderObserver = new ResizeObserver((entries) =>
-      entries.forEach((entry) =>
+      entries.forEach((entry) =>{
+
         dispatch(
           setHeaderHeight({
             value: parseFloat(getComputedStyle(entry.target).height),
           })
         )
+
+        if(window.innerWidth > 760) setOpenedMenu(false);
+      }
       )
     );
 

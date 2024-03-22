@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
+import { allTechIconsArray } from "../../assets/TechIconsData/TechIconsData";
 
 const SkillsBackground = () => {
   return (
     <svg
-      className="absolute top-0 left-0 w-full h-full"
+      className="absolute top-0 left-0 w-full h-full z-[-1]"
       preserveAspectRatio="none"
       width="1728"
       height="1103"
@@ -44,20 +45,40 @@ const SkillsSection = () => {
 
   return (
     <>
-      <section id="skills-section" className={`w-full -border-2 relative`}>
+      <section
+        id="skills-section"
+        className={`w-full -border-2 relative flex flex-wrap items-center justify-center flex-col gap-y-[3rem] content-center`}
+      >
         <SkillsBackground />
+        <h1 className="relative text-white max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[30%] after:bg-white after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
+          Habilidades
+        </h1>
+        <div className="flex flex-wrap gap-7 items-center justify-evenly w-full">
+          {allTechIconsArray.map(({ name, urlImg }, index) => (
+            <img
+              key={index}
+              src={urlImg}
+              alt={`Logo ${name}`}
+              title={name}
+              className="aspect-auto mx-3 h-16"
+            />
+          ))}
+        </div>
       </section>
 
       <style>{`
     
       #skills-section{
-        height: ${homeSectionHeight}px;  
-
+        min-height: ${homeSectionHeight}px;  
         margin-top: ${
           backgroundProyectsHeight > homeSectionHeight
             ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
             : homeSectionHeight * 0.15
         }px;
+        padding-left: 8%;
+        padding-right: 8%;
+        padding-top: 9.5%;
+        padding-bottom: 8%;
       }
 
       @media screen and (min-width: 768px){
@@ -65,7 +86,7 @@ const SkillsSection = () => {
           margin-top: ${
             backgroundProyectsHeight > homeSectionHeight
               ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
-              : homeSectionHeight * 0.20
+              : homeSectionHeight * 0.2
           }px;
         }
       }

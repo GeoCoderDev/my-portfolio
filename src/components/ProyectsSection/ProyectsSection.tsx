@@ -19,12 +19,12 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
   const x = useTransform(
     scrollYProgress,
     [0, 1],
-    ["0%", `-${(proyects.length - 1) * 100}%`]
+    ["50%", `-${(proyects.length - 1) * 100}%`]
   );
 
   return (
     <>
-      <motion.section
+      <motion.section 
         animate={{ y: `0%` }}
         style={{ height: `${proyects.length * homeSectionHeight}px` }}
         className=""
@@ -38,13 +38,11 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
             Proyectos
           </h1>
-          <div className="-border-2 w-full h-[70%] overflow-hidden flex">
-            <motion.div style={{ x }} className="flex h-full min-w-full">
-
+          <div className="-border-2 w-full max-md:h-[80%] h-[72.5%] overflow-hidden flex">
+            <motion.div style={{ x }} className="cont-proy flex h-full min-w-full">
               {proyects.map((proyectData, index) => {
                 return <Proyect proyectData={proyectData} key={index} />;
               })}
-
             </motion.div>
           </div>
         </div>
@@ -60,6 +58,15 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
             position: sticky;
             top:0;
           }          
+
+          .cont-proy{
+            scroll-snap-type: x  mandatory;
+
+          }
+
+          .cont-proy>div{
+            scroll-snap-align: start;
+          }
 
         `}
       </style>
