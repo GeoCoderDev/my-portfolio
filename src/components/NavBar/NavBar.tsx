@@ -21,7 +21,7 @@ const NavBar = ({
       <a href="#proyects-section">
         <li className="cursor-pointer">Proyectos</li>
       </a>
-      <a href="#">
+      <a href="#contact-section">
         <li className="cursor-pointer">Contacto</li>
       </a>
     </ul>

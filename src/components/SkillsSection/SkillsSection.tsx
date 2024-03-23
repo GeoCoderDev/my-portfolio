@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { allTechIconsArray } from "../../assets/TechIconsData/TechIconsData";
+import { useEffect, useState } from "react";
 
 const SkillsBackground = () => {
   return (
@@ -26,8 +27,8 @@ const SkillsBackground = () => {
           y2="1103"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#6660BF" />
-          <stop offset="1" stop-color="#3C55CB" />
+          <stop stopColor="#6660BF" />
+          <stop offset="1" stopColor="#3C55CB" />
         </linearGradient>
       </defs>
     </svg>
@@ -43,24 +44,42 @@ const SkillsSection = () => {
     (state: RootState) => state.backgroundProyectHeight
   );
 
+  const [skillsHeight, setSkillsHeight] = useState(200);
+
+  useEffect(() => {
+    const contSkills = document.getElementById("cont-skills");
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        setSkillsHeight(entry.contentRect.height);
+      });
+    });
+
+    resizeObserver.observe(contSkills!);
+    return () => resizeObserver.unobserve(contSkills!);
+  }, []);
+
   return (
     <>
       <section
         id="skills-section"
-        className={`w-full -border-2 relative flex flex-wrap items-center justify-center flex-col gap-y-[3rem] content-center`}
+        className={`w-full -border-2 relative flex flex-wrap items-center justify-center flex-col max-sm:gap-y-[2.4rem] gap-y-[3rem] content-center`}
       >
         <SkillsBackground />
         <h1 className="relative text-white max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[30%] after:bg-white after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
           Habilidades
         </h1>
-        <div className="flex flex-wrap gap-7 items-center justify-evenly w-full">
+        <div
+          id="cont-skills"
+          className="flex flex-wrap max-sm:gap-6 gap-7 items-center justify-evenly w-full"
+        >
           {allTechIconsArray.map(({ name, urlImg }, index) => (
             <img
               key={index}
               src={urlImg}
               alt={`Logo ${name}`}
               title={name}
-              className="aspect-auto mx-3 h-16"
+              className="aspect-auto mx-3 max-sm:h-[2.6rem] h-16"
             />
           ))}
         </div>
@@ -69,7 +88,7 @@ const SkillsSection = () => {
       <style>{`
     
       #skills-section{
-        min-height: ${homeSectionHeight}px;  
+        min-height: ${skillsHeight * 1.92}px;  
         margin-top: ${
           backgroundProyectsHeight > homeSectionHeight
             ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
@@ -85,9 +104,14 @@ const SkillsSection = () => {
         #skills-section{
           margin-top: ${
             backgroundProyectsHeight > homeSectionHeight
-              ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
-              : homeSectionHeight * 0.2
-          }px;
+            ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
+            : homeSectionHeight * 0.2
+          }px;          
+        }
+      }
+      @media screen and (max-width: 480px){
+        #skills-section{
+          padding-top: 13%;
         }
       }
     

@@ -56,10 +56,21 @@ body {
   background-color: #333232;
 }
 
+.scrollbar-stilizado-black::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+.scrollbar-stilizado-black::-webkit-scrollbar-thumb:hover {
+  background-color: #000000;
+}
+
 .scrollbar-oculto::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
 
 .semi-transparent-border-black {
   border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.semi-transparent-border-black {
+  border: 1px solid #00000080;
 }

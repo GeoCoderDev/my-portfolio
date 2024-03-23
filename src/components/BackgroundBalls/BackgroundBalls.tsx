@@ -185,8 +185,8 @@ export const BackgroundColourBalls = ({ className }: { className: string }) => {
                 y2="415.523"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#F97A7A" />
-                <stop offset="1" stop-color="#3951C2" />
+                <stop stopColor="#F97A7A" />
+                <stop offset="1" stopColor="#3951C2" />
               </linearGradient>
             </defs>
           </svg>
@@ -216,7 +216,7 @@ export const BackgroundColourBalls = ({ className }: { className: string }) => {
                 gradientUnits="userSpaceOnUse"
               >
                 <stop stopColor="#3951C2" />
-                <stop offset="1" stop-color="#58E1FF" />
+                <stop offset="1" stopColor="#58E1FF" />
               </linearGradient>
             </defs>
           </svg>
@@ -246,8 +246,8 @@ export const BackgroundColourBalls = ({ className }: { className: string }) => {
                 y2="356.729"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#00FFD1" />
-                <stop offset="1" stop-color="#3951C2" />
+                <stop stopColor="#00FFD1" />
+                <stop offset="1" stopColor="#3951C2" />
               </linearGradient>
             </defs>
           </svg>
@@ -277,8 +277,8 @@ export const BackgroundColourBalls = ({ className }: { className: string }) => {
                 y2="73.466"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#00FFB3" />
-                <stop offset="1" stop-color="#3951C2" />
+                <stop stopColor="#00FFB3" />
+                <stop offset="1" stopColor="#3951C2" />
               </linearGradient>
             </defs>
           </svg>
@@ -308,8 +308,8 @@ export const BackgroundColourBalls = ({ className }: { className: string }) => {
                 y2="289.288"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#3951C2" />
-                <stop offset="1" stop-color="#FF00C7" />
+                <stop stopColor="#3951C2" />
+                <stop offset="1" stopColor="#FF00C7" />
               </linearGradient>
             </defs>
           </svg>

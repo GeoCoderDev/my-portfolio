@@ -34,7 +34,7 @@ const Proyect = ({
             <div className="-border-2 flex items-center justify-end">
               <span className="opacity-[0.85] rounded-full relative bg-black h-[0.15rem] lg:h-[0.2rem] w-[75%] md:w-[60%] after:content-[''] after:h-[350%] after:rounded-[50%] after:-translate-y-[50%] after:bg-black after:aspect-square after:absolute after:top-[50%] "></span>
             </div>
-            <h3 className="text-xl text-[1.35rem] lg:text-2xl -border-2 flex items-center justify-center font-medium">
+            <h3 className="text-xl text-[1.35rem] leading-8 lg:text-2xl -border-2 flex items-center justify-center font-medium">
               {proyectName}
             </h3>
             <div className="-border-2 flex items-center">
@@ -49,7 +49,7 @@ const Proyect = ({
             />
           </figure>
           <div className="scrollbar-stilizado description-container  scrollbar-stilizado-semi-black overflow-x-hidden overflow-y-auto flex items-center justify-center">
-            <p className="pr-[0.5rem] h-[95%] -pl-3  text-[0.7rem]">
+            <p className="pr-[0.5rem] h-[95%] -pl-3 text-[0.7rem]">
               {Array.isArray(description)
                 ? description.map((desc) => (
                     <>
@@ -122,9 +122,9 @@ const Proyect = ({
 
           .proyect{
             grid-template-columns: 1fr;
-            grid-template-rows: 1.2fr 3fr max-content minmax(0,4fr) max-content;
+            grid-template-rows: max-content 3fr max-content minmax(0,4fr) max-content;
             row-gap: 2%; 
-            padding: 3% 3%;
+            padding: 5% 3%;
 
           }          
           
