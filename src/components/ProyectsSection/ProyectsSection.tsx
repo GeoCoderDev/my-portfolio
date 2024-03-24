@@ -25,8 +25,8 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
   return (
     <>
       <motion.section
+        id="proyects-section-container"
         animate={{ y: `0%` }}
-        style={{ height: `${proyects.length * homeSectionHeight}px` }}
         className="w-full max-w-screen-xl -border-2"
         ref={ref as Ref<HTMLDivElement> | undefined}
       >
@@ -40,8 +40,8 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           </h1>
           <div className="-border-2 w-full max-md:h-[80%] h-[72.5%] overflow-hidden flex">
             <motion.div
-              style={{ x }}
-              className="cont-proy flex h-full min-w-full"
+              style={{ x: homeSectionHeight >= window.innerHeight ? x : 0 }}
+              className="scrollbar-stilizado scrollbar-stilizado-semi-black cont-proys flex h-full min-w-full"
             >
               {proyects.map((proyectData, index) => {
                 return <Proyect proyectData={proyectData} key={index} />;
@@ -54,20 +54,32 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
       <style>
         {`
 
-          #proyects-section{
+          #proyects-section-container{
             margin-top: calc(${homeSectionHeight * 0.86}px);
+            ${
+              homeSectionHeight < window.innerHeight
+                ? `
+            height: ${homeSectionHeight}px;                        
+            `
+                : `height: ${proyects.length * homeSectionHeight}px;`
+            }
+          }
+
+          #proyects-section{            
             height: ${homeSectionHeight}px;
             overflow:visible;
             position: sticky;
             top:0;
           }          
 
-          .cont-proy{
+          .cont-proys{
             scroll-snap-type: x  mandatory;
-
+            ${
+              homeSectionHeight < window.innerHeight ? "overflow-x:scroll; padding:0 2% 1rem 2%;" : ""
+            }
           }
 
-          .cont-proy>div{
+          .cont-proys>div{
             scroll-snap-align: start;
           }
 

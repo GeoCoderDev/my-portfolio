@@ -27,12 +27,14 @@ body {
 .scrollbar-stilizado::-webkit-scrollbar,
 .scrollbar-oculto::-webkit-scrollbar {
   width: 0.5rem;
+  max-height: 1rem;
 }
 
 .scrollbar-stilizado::-webkit-scrollbar-thumb,
 .scrollbar-oculto::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color del thumb */
-  border-radius: 0.34rem; /* Bordes redondeados */
+  background-color: #888;
+  /*Colordelthumb*/
+  border-radius: 500px;
 }
 
 .scrollbar-stilizado-white::-webkit-scrollbar-thumb {
