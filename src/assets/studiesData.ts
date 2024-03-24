@@ -1,5 +1,4 @@
 import { StudyProps } from "../components/Study/Study";
-import undcLogo from "./../../public/images/png/UNDC Logo.png";
 import platformsLogos from "./../../public/images/svg/DigitalPlatformsIcons.svg";
 
 export const studies: StudyProps[] = [
@@ -10,7 +9,7 @@ export const studies: StudyProps[] = [
     Durante mi tiempo en la universidad, he adquirido conocimientos fundamentales en áreas clave como programación, bases de datos, redes de computadoras, sistemas operativos y desarrollo de software.`,
 
     entityName: "Universidad Nacional de Cañete",
-    urlImage: undcLogo,
+    urlImage: "https://res.cloudinary.com/dsyvhet0c/image/upload/f_auto,q_auto:good/v1711294892/undc-logo_l8yjvq.png",
   },
   {
     date: "2022 - En curso...",
