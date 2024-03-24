@@ -9,7 +9,7 @@ import HomeSection from "./components/HomeSection/HomeSection";
 import ProyectsSection from "./components/ProyectsSection/ProyectsSection";
 import SkillsSection from "./components/SkillsSection/SkillsSection";
 import FooterSection from "./components/FooterSection/FooterSection";
-import { studies } from './assets/studiesData';
+import { studies } from './assets/StudiesData';
 
 
 function App() {

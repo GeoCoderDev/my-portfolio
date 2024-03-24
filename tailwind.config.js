@@ -16,6 +16,7 @@ export default {
       "max-sm": { max: "480px" },
       "max-md": { max: "768px" },
       "max-lg": { max: "976px" },
+      "max-xl": { max: "1440px" },
       "pseudo-portrait": { raw: "(max-aspect-ratio: 1.4/1)" },
       portrait: { raw: "(orientation: portrait)" },
       landscape: { raw: "(orientation: landscape)" },

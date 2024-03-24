@@ -24,22 +24,25 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
 
   return (
     <>
-      <motion.section 
+      <motion.section
         animate={{ y: `0%` }}
         style={{ height: `${proyects.length * homeSectionHeight}px` }}
-        className=""
+        className="w-full max-w-screen-xl -border-2"
         ref={ref as Ref<HTMLDivElement> | undefined}
       >
         <div
           id="proyects-section"
-          className={`-border-2 w-full relative flex flex-wrap flex-col items-center justify-evenly`}
+          className={`-border-2 w-full flex-auto relative flex flex-wrap flex-col items-center justify-evenly`}
         >
           <BackgroundColourBalls className="absolute" />
           <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
             Proyectos
           </h1>
           <div className="-border-2 w-full max-md:h-[80%] h-[72.5%] overflow-hidden flex">
-            <motion.div style={{ x }} className="cont-proy flex h-full min-w-full">
+            <motion.div
+              style={{ x }}
+              className="cont-proy flex h-full min-w-full"
+            >
               {proyects.map((proyectData, index) => {
                 return <Proyect proyectData={proyectData} key={index} />;
               })}

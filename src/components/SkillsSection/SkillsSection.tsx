@@ -63,7 +63,7 @@ const SkillsSection = () => {
     <>
       <section
         id="skills-section"
-        className={`w-full -border-2 relative flex flex-wrap items-center justify-center flex-col max-sm:gap-y-[2.4rem] gap-y-[3rem] content-center`}
+        className={`w-full max-w-screen-xl -border-2 relative flex flex-wrap items-center justify-center flex-col max-sm:gap-y-[2.4rem] gap-y-[3rem] content-center`}
       >
         <SkillsBackground />
         <h1 className="relative text-white max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[30%] after:bg-white after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">

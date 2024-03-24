@@ -34,7 +34,6 @@ const Fondo = () => (
 );
 
 const AboutSection = () => {
-
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
   );
@@ -43,7 +42,7 @@ const AboutSection = () => {
     <>
       <section
         id="about-section"
-        className="w-full absolute left-0 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] xs:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] md:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]  z-[6] max-xs:px-[1.5%] max-md:px-[3.5%]"
+        className="w-full flex-auto max-w-screen-xl max-xl:left-0 absolute -border-2 grid grid-cols-[repeat(auto-fit,minmax(12rem,1fr))] xs:grid-cols-[repeat(auto-fit,minmax(13rem,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] md:grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]  z-[6] max-xs:px-[1.5%] max-md:px-[3.5%]"
       >
         <Fondo />
 
@@ -83,7 +82,12 @@ const AboutSection = () => {
             audaces.
           </p>
 
-          <a id="button-cv" href="/pdfs/MI CV.pdf" className="md:self-start" download={true}>
+          <a
+            id="button-cv"
+            href="/pdfs/MI CV.pdf"
+            className="md:self-start"
+            download={true}
+          >
             <button className="text-center text-[1rem] md:text-[1.1rem] bg-white text-black px-3 rounded-md flex items-center transition-all duration-75 py-1 ">
               Descargar CV
               <img

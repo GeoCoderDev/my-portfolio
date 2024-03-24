@@ -11,7 +11,7 @@ const StudiesSection = ({ studies }: { studies: StudyProps[] }) => {
     <>
       <section
         id="studies-section"
-        className="w-full -border-2 mt-[3rem] mb-[2.5rem] flex items-center justify-center flex-col gap-y-[2.5rem] flex-wrap"
+        className="w-full max-w-screen-xl -border-2 mt-[3rem] mb-[2.5rem] flex items-center justify-center flex-col gap-y-[2.5rem] flex-wrap"
       >
         <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[50%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
           Estudios

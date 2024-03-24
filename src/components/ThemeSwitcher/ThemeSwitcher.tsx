@@ -26,7 +26,7 @@ const ThemeSwitcher = ({
             background-color: ${ballColor};
             color: ${iconColor};
             border-radius: 50%;
-            font-size: 100%;
+            font-size: 1rem;
             left: 0;
             top: 50%;
             translate:0 -50%;

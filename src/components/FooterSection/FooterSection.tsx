@@ -5,7 +5,7 @@ import linkedInLogoBlanco from "../../../public/images/svg/Logo LinkedIn blanco.
 const FooterSection = () => {
   return (
     <>
-      <footer className="min-h-[20vh] w-full flex flex-wrap items-center justify-center max-md:gap-x-[3rem] gap-x-[4rem] gap-y-6 bg-black py-6 px-[10%]">
+      <footer className="min-h-[10vh] relative w-full flex flex-wrap items-center justify-center max-md:gap-x-[3rem] gap-x-[4rem] gap-y-6 bg-black py-6 px-[10%] after:absolute after:top-0 after:translate-y-[-100%] after:w-full after:h-[0.5vh] after:bg-black">
         <img
           className="-border-2 max-md:w-[16rem] w-[19rem]"
           src={logoConTexto}
