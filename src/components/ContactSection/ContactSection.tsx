@@ -3,6 +3,8 @@ import whatsappIcon from "./../../../public/images/svg/whatsapp-icon.svg";
 import copyIcon from "./../../../public/images/svg/CopiarIcon.svg";
 import { ChangeEvent, useEffect, useState } from "react";
 
+const API_SEND_EMAIL = "https://minimal-api-send-emails.vercel.app/sendMe";
+
 const ContactSectionBackground = () => {
   return (
     <svg
@@ -50,18 +52,14 @@ const ContactSectionBackground = () => {
 };
 
 interface EmailData {
-  Authorization: string;
   message: string;
   fromEmail: string;
-  toEmail: string;
   nameOrigin: string;
 }
 
 const initialEmail: EmailData = {
-  Authorization: "re_Jmt7LiYM_3wumjHArZFA5QMQcPUhU7va1",
   message: "",
   fromEmail: "",
-  toEmail: "juanchavezsaldana1@gmail.com",
   nameOrigin: "",
 };
 
@@ -112,22 +110,13 @@ const ContactSection = () => {
               e.preventDefault();
 
               try {
-                const resJSON = await fetch("https://api.resend.com/emails", {
+                const resJSON = await fetch(API_SEND_EMAIL, {
                   method: "POST",
                   headers: {
-                    Authorization: `Bearer ${emailData.Authorization}`,
                     "Content-Type": "application/json",
                   },
-                  body: JSON.stringify({
-                    cc: [],
-                    to: [emailData.toEmail],
-                    bcc: [],
-                    from: "onboarding@resend.dev",
-                    html: '<p>Congrats on sending your <strong>first email</strong>!</p><hr /><p style="color:#898989;font-size:12px;">2261 Market Street #5039 - San Francisco, CA 94114</p>',
-                    tags: [],
-                    text: emailData.message,
-                    subject: `Message from ${emailData.fromEmail}`,
-                  }),
+
+                  body: JSON.stringify(emailData),
                 });
 
                 if (!resJSON.ok)

@@ -3,7 +3,7 @@ import { allTechIcons } from "./TechIconsData/TechIconsData";
 import sinth_preview from "./../../public/images/png/2O-SINTH-Preview.png";
 import sinth_api_preview from "./../../public/images/png/2O-SINTH-API-Preview.png";
 import temchat_preview from "./../../public/images/png/TEMCHAT-Preview.png";
-// import optimizer_io_preview from "./../../public/images/png/Optimizer-IO-Preview.png";
+import optimizer_io_preview from "./../../public/images/png/Optimizer-IO-Preview.png";
 
 export const proyects: ProyectProps[] = [
   {
@@ -65,22 +65,22 @@ export const proyects: ProyectProps[] = [
     ],
     nota: "El servidor de TEMCHAT se encuentra desplegado con el plan gratuito de Render por lo cual es posible que en la primera petición al servidor, este  demore alrededor de 1 minuto en dar respuesta.",
   },
-  // {
-  //   proyectName: "OPTIMIZER IO",
-  //   description:
-  //     "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quas amet molestiae et alias ullam, unde veritatis quidem nulla doloremque iste laborum quos provident velit. Quos obcaecati nemo accusantium provident.",
-  //   proyectImage: optimizer_io_preview,
-  //   altProyectImage: "Imagen de proyecto OPTIMIZER IO en producción",
-  //   githubRepoLink: "https://github.com/GeoCoderDev/Optimizer-IO.git",
-  //   deployLink: "",
-  //   techIcons: [
-  //     allTechIcons["React"],
-  //     allTechIcons["CSS"],
-  //     allTechIcons["Tailwind"],
-  //     allTechIcons["Redux"],
-  //     allTechIcons["Typescript"],
-  //     allTechIcons["Figma"],
-  //     allTechIcons["Next"],
-  //   ],
-  // },
+  {
+    proyectName: "OPTIMIZER IO",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quas amet molestiae et alias ullam, unde veritatis quidem nulla doloremque iste laborum quos provident velit. Quos obcaecati nemo accusantium provident.",
+    proyectImage: optimizer_io_preview,
+    altProyectImage: "Imagen de proyecto OPTIMIZER IO en producción",
+    githubRepoLink: "https://github.com/GeoCoderDev/Optimizer-IO.git",
+    deployLink: "https://optimizer-io.vercel.app/",
+    techIcons: [
+      allTechIcons["React"],
+      allTechIcons["CSS"],
+      allTechIcons["Tailwind"],
+      allTechIcons["Redux"],
+      allTechIcons["Typescript"],
+      allTechIcons["Figma"],
+      allTechIcons["Next"],
+    ],
+  },
 ];

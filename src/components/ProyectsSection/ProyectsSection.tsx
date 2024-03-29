@@ -40,7 +40,7 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           </h1>
           <div className="-border-2 w-full max-md:h-[80%] h-[72.5%] overflow-hidden flex">
             <motion.div
-              style={{ x: homeSectionHeight >= window.innerHeight ? x : 0 }}
+              style={{ x: homeSectionHeight >= (window.innerHeight*0.6) ? x : 0 }}
               className="scrollbar-stilizado scrollbar-stilizado-semi-black cont-proys flex h-full min-w-full"
             >
               {proyects.map((proyectData, index) => {
@@ -57,7 +57,7 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           #proyects-section-container{
             margin-top: calc(${homeSectionHeight * 0.86}px);
             ${
-              homeSectionHeight < window.innerHeight
+              homeSectionHeight < (window.innerHeight*0.6)
                 ? `
             height: ${homeSectionHeight}px;                        
             `
@@ -75,7 +75,7 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           .cont-proys{
             scroll-snap-type: x  mandatory;
             ${
-              homeSectionHeight < window.innerHeight ? "overflow-x:scroll; padding:0 2% 1rem 2%;" : ""
+              homeSectionHeight < (window.innerHeight*0.6) ? "overflow-x:scroll; padding:0 2% 1rem 2%;" : ""
             }
           }
 

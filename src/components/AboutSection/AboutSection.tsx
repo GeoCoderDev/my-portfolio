@@ -84,7 +84,7 @@ const AboutSection = () => {
 
           <a
             id="button-cv"
-            href="/pdfs/MI CV.pdf"
+            href="/pdfs/Juan Chavez - CV.pdf"
             className="md:self-start"
             download={true}
           >
