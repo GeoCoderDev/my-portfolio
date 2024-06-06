@@ -43,9 +43,9 @@ const Proyect = ({
               <span className="opacity-[0.85] rounded-full relative bg-black h-[0.15rem] lg:h-[0.2rem]  w-[75%] md:w-[60%] after:content-[''] after:h-[350%] after:rounded-[50%] after:-translate-y-[50%] after:bg-black after:aspect-square after:absolute after:top-1/2 after:right-0"></span>
             </div>
           </div>
-          <figure className=" flex justify-center items-center md:pr-3">
+          <figure className=" flex justify-center items-center md:pr-3 ">
             <img
-              className="semi-transparent-border-black opacity-95 flex bg-center aspect-[2.25/1] h-full rounded-[0.4rem]"
+              className="semi-transparent-border-black opacity-95 flex bg-center aspect-[2.25/1] h-full rounded-[0.4rem] bg-white"
               src={proyectImage}
               alt={altProyectImage}
             />
