@@ -4,7 +4,7 @@ import sinth_preview from "./../../public/images/png/2O-SINTH-Preview.png";
 import sinth_api_preview from "./../../public/images/png/2O-SINTH-API-Preview.png";
 import temchat_preview from "./../../public/images/png/TEMCHAT-Preview.png";
 import optimizer_io_preview from "./../../public/images/png/Optimize-IO-preview.png";
-import aula_fronted_view from "./../../public/images/png/Aula-Virtual-Preview.png";
+import aula_fronted_view from "./../../public/images/svg/Aula-Virtual-Preview.svg";
 
 export const proyects: ProyectProps[] = [
   {
