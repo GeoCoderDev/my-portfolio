@@ -5,8 +5,9 @@ export interface ProyectProps {
   proyectName: string;
   description: string | string[];
   nota?: string;
-  deployLink: string;
+  deployLink?: string;
   githubRepoLink: string;
+  githubRepoLink2?: string;
   proyectImage: string;
   techIcons: TechIcon[];
   altProyectImage: string;
@@ -20,6 +21,7 @@ const Proyect = ({
     altProyectImage,
     techIcons,
     githubRepoLink,
+    githubRepoLink2,
     deployLink,
     nota,
   },
@@ -34,7 +36,7 @@ const Proyect = ({
             <div className="-border-2 flex items-center justify-end">
               <span className="opacity-[0.85] rounded-full relative bg-black h-[0.15rem] lg:h-[0.2rem] w-[75%] md:w-[60%] after:content-[''] after:h-[350%] after:rounded-[50%] after:-translate-y-[50%] after:bg-black after:aspect-square after:absolute after:top-[50%] "></span>
             </div>
-            <h3 className="text-xl text-[1.35rem] leading-8 lg:text-2xl -border-2 flex items-center justify-center font-medium">
+            <h3 className="text-xl text-[1.35rem] leading-8 lg:text-2xl -border-2 flex items-center justify-center font-medium text-center">
               {proyectName}
             </h3>
             <div className="-border-2 flex items-center">
@@ -78,18 +80,29 @@ const Proyect = ({
               </aside>
             )}
             <div className=" buttons-container flex justify-evenly items-center w-full flex-wrap gap-y-2">
-              <a href={deployLink}>
-                <button className="flex gap-[0.4rem] text-[#35E551] bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
-                  Desplegado
-                  <span className="bg-[#35E551] aspect-square h-[0.65rem] rounded-[50%]"></span>
-                </button>
-              </a>
+              {deployLink && (
+                <a href={deployLink}>
+                  <button className="flex gap-[0.4rem] text-[#35E551] bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
+                    Desplegado
+                    <span className="bg-[#35E551] aspect-square h-[0.65rem] rounded-[50%]"></span>
+                  </button>
+                </a>
+              )}
               <a href={githubRepoLink}>
                 <button className="flex gap-[0.4rem] text-white bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
                   Repositorio
                   <img className="h-[1rem] aspect-auto" src={GithubLogo} />
                 </button>
               </a>
+
+              {githubRepoLink2 && (
+                <a href={githubRepoLink2}>
+                  <button className="flex gap-[0.4rem] text-white bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
+                    Repositorio 2
+                    <img className="h-[1rem] aspect-auto" src={GithubLogo} />
+                  </button>
+                </a>
+              )}
             </div>
           </div>
         </div>

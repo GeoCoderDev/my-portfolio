@@ -21,6 +21,9 @@ import LogoMongoDB from "./../../../public/images/svg/Tech Icons/MongoDBLogo.svg
 import LogoRedux from "./../../../public/images/svg/Tech Icons/ReduxLogo.svg";
 import LogoSass from "./../../../public/images/svg/Tech Icons/SassLogo.svg";
 import LogoNext from "./../../../public/images/svg/Tech Icons/LogoNext.svg";
+import LogoPostman from "./../../../public/images/svg/Tech Icons/Logo Postman.svg";
+import LogoPhp from "./../../../public/images/svg/Tech Icons/Logo Php.svg";
+import LogoComposer from "./../../../public/images/svg/Tech Icons/Logo Composer.svg";
 
 export interface TechIcon {
   name: string;
@@ -35,6 +38,8 @@ export const allTechIcons: ObjectWithProperties<TechIcon> = {
   HTML: { name: "HTML", urlImg: HTMLLogo },
   CSS: { name: "CSS", urlImg: CSSLogo },
   JavaScript: { name: "JavaScript", urlImg: JavascriptLogo },
+  PHP: { name: "PHP", urlImg: LogoPhp },
+  Composer: { name: "Composer", urlImg: LogoComposer },
   Node: { name: "Node", urlImg: NodeLogo },
   "Socket IO": { name: "Socket IO", urlImg: SocketIOLogo },
   Express: { name: "Express", urlImg: LogoExpress },
@@ -46,6 +51,7 @@ export const allTechIcons: ObjectWithProperties<TechIcon> = {
   JWT: { name: "JSON Web Tokens", urlImg: LogoJWT },
   Angular: { name: "Angular", urlImg: LogoAngular },
   Bootstrap: { name: "Bootstrap", urlImg: LogoBootstrap },
+  Postman: { name: "Postman", urlImg: LogoPostman },
   Less: { name: "Less", urlImg: LogoLess },
   MySQL: { name: "Base de datos: MySQL", urlImg: LogoMySQL },
   Sequelize: { name: "ORM: Sequelize", urlImg: LogoSequelize },

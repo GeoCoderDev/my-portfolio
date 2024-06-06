@@ -3,7 +3,8 @@ import { allTechIcons } from "./TechIconsData/TechIconsData";
 import sinth_preview from "./../../public/images/png/2O-SINTH-Preview.png";
 import sinth_api_preview from "./../../public/images/png/2O-SINTH-API-Preview.png";
 import temchat_preview from "./../../public/images/png/TEMCHAT-Preview.png";
-import optimizer_io_preview from "./../../public/images/png/Optimizer-IO-Preview.png";
+import optimizer_io_preview from "./../../public/images/png/Optimize-IO-preview.png";
+import aula_fronted_view from "./../../public/images/png/Aula-Virtual-Preview.png";
 
 export const proyects: ProyectProps[] = [
   {
@@ -41,13 +42,14 @@ export const proyects: ProyectProps[] = [
       allTechIcons["Sequelize"],
       allTechIcons["MySQL"],
       allTechIcons["JWT"],
+      allTechIcons["Postman"],
     ],
   },
   {
     proyectName: "TEMCHAT",
     description: [
       "Temchat es un proyecto que desarrolle para chatear con desconocidos, de manera similar a la popular aplicación web Omegle que tambien posee esta funcionalidad, con la diferencia que Temchat le permite la posibilidad de enviar SOLICITUDES DE CHAT con cierto tiempo limite, buscar usuarios por su nombre entre otras funcionalidades.",
-      "Este proyecto me permitio aprender mucho mas del backend como usar web sockets, trabajar con bases de datos no relacionales, mostrar datos(usuarios buscados en este caso) solicitados por el usuario a la base de datos MongoDB, etc, que le invito a probar usted mismo viendo el video corto de demostración de uso de la aplicación adjunto en la imagen."
+      "Este proyecto me permitio aprender mucho mas del backend como usar web sockets, trabajar con bases de datos no relacionales, mostrar datos(usuarios buscados en este caso) solicitados por el usuario a la base de datos MongoDB, etc, que le invito a probar usted mismo viendo el video corto de demostración de uso de la aplicación adjunto en la imagen.",
     ],
     proyectImage: temchat_preview,
     altProyectImage: "Imagen del proyecto TEMCHAT en producción",
@@ -68,11 +70,12 @@ export const proyects: ProyectProps[] = [
   {
     proyectName: "OPTIMIZER IO",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis quas amet molestiae et alias ullam, unde veritatis quidem nulla doloremque iste laborum quos provident velit. Quos obcaecati nemo accusantium provident.",
+      "Esta aplicación es una herramienta de software diseñada para encontrar soluciones óptimas a problemas de optimización matemática. Permitira al usuario ingresar los datos diversos de tipos de problemas de programación y obtener sus soluciones de manera detallada de manera muy similar a aplicaciones como PhpSimplex.",
     proyectImage: optimizer_io_preview,
     altProyectImage: "Imagen de proyecto OPTIMIZER IO en producción",
     githubRepoLink: "https://github.com/GeoCoderDev/Optimizer-IO.git",
     deployLink: "https://optimizer-io.vercel.app/",
+    nota: "PROYECTO NO TERMINADO, AUN EN CURSO",
     techIcons: [
       allTechIcons["React"],
       allTechIcons["CSS"],
@@ -81,6 +84,28 @@ export const proyects: ProyectProps[] = [
       allTechIcons["Typescript"],
       allTechIcons["Figma"],
       allTechIcons["Next"],
+    ],
+  },
+  {
+    proyectName: "Aula Virtual",
+    description:
+      "Esta aplicación es un Aula Virtual que estoy desarrollando con la ayuda de un grupos de compañeros de mi universidad para un colegio de la provincia de cañete con funcionalidades muy similares a las de Moddle y Google Classroom entre otras adicionales.",
+    proyectImage: aula_fronted_view,
+    altProyectImage: "Imagen de proyecto de Aula Virtual",
+    githubRepoLink: "https://github.com/GeoCoderDev/aula-virtual-fronted.git",
+    githubRepoLink2: "https://github.com/GeoCoderDev/aula-virtual-backend.git",
+    nota: "PROYECTO NO TERMINADO, AUN EN CURSO",
+    techIcons: [
+      allTechIcons["Figma"],
+      allTechIcons["CSS"],
+      allTechIcons["Tailwind"],
+      allTechIcons["React"],
+      allTechIcons["Typescript"],
+      allTechIcons["Redux"],
+      allTechIcons["Next"],
+      allTechIcons["PHP"],
+      allTechIcons["Composer"],
+      allTechIcons["Postman"],
     ],
   },
 ];
