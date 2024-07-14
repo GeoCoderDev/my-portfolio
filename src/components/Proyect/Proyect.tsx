@@ -1,9 +1,10 @@
 import GithubLogo from "../../../public/images/svg/Logo Github Blanco.svg";
 import { TechIcon } from "../../assets/TechIconsData/TechIconsData";
+import useI18n from "../../i18n";
 
 export interface ProyectProps {
   proyectName: string;
-  description: string | string[];
+  description: string;
   nota?: string;
   deployLink?: string;
   githubRepoLink: string;
@@ -28,6 +29,8 @@ const Proyect = ({
 }: {
   proyectData: ProyectProps;
 }) => {
+  const { languageTexts } = useI18n();
+
   return (
     <>
       <div className="proyect-container min-w-full h-full flex justify-center">
@@ -52,14 +55,16 @@ const Proyect = ({
           </figure>
           <div className="scrollbar-stilizado description-container  scrollbar-stilizado-semi-black overflow-x-hidden overflow-y-auto flex items-center justify-center">
             <p className="pr-[0.5rem] h-[95%] -pl-3 text-[0.7rem]">
-              {Array.isArray(description)
-                ? description.map((desc) => (
-                    <>
-                      {desc} <br />
-                      <br />
-                    </>
-                  ))
-                : description}
+              {Array.isArray(languageTexts?.[description])
+                ? (languageTexts?.[description] as string[]).map(
+                    (desc: string) => (
+                      <>
+                        {desc} <br />
+                        <br />
+                      </>
+                    )
+                  )
+                : languageTexts?.[description]}
             </p>
           </div>
           <div className="tech-icons-container px-[15%] gap-0 -border-2 md:pr-[calc(0.75rem+15%)]">
@@ -76,7 +81,10 @@ const Proyect = ({
           <div className="note-buttons-container flex items-center flex-col justify-center gap-[10%] -border-2">
             {nota && (
               <aside className="note-container scrollbar-stilizado scrollbar-stilizado-dark-red text-[#7A0217] text-[0.6rem] pr-[0.5rem] font-semibold max-h-[40%] overflow-auto">
-                <span className="underline">Nota</span>: {nota}
+                <span className="underline">
+                  {languageTexts?.["Titulo-Nota-Proyecto"]}
+                </span>
+                : {languageTexts?.[nota]}
               </aside>
             )}
             <div className=" buttons-container flex justify-evenly items-center w-full flex-wrap gap-y-2">

@@ -28,8 +28,6 @@ const FooterSection = () => {
           />
         </a>
       </footer>
-
-      <style></style>
     </>
   );
 };

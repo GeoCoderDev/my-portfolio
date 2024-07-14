@@ -8,7 +8,6 @@ const homeSectionHeight =  createSlice({
     initialState,
     reducers:{
         setHomeSectionHeight: (state, action: PayloadAction<ReduxPayload<number>>)=>{
-            console.log(action.payload.value)
             return action.payload.value;
         }
     }

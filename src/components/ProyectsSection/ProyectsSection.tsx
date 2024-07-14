@@ -4,8 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { BackgroundColourBalls } from "../BackgroundBalls/BackgroundBalls";
+import useI18n from "../../i18n";
 
 const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
+  const { languageTexts } = useI18n();
+
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
   );
@@ -36,11 +39,13 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
         >
           <BackgroundColourBalls className="absolute" />
           <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-            Proyectos
+            {languageTexts?.["Titulo-Proyects-Section"] ?? ""}
           </h1>
           <div className="-border-2 w-full max-md:h-[80%] h-[72.5%] overflow-hidden flex">
             <motion.div
-              style={{ x: homeSectionHeight >= (window.innerHeight*0.6) ? x : 0 }}
+              style={{
+                x: homeSectionHeight >= window.innerHeight * 0.6 ? x : 0,
+              }}
               className="scrollbar-stilizado scrollbar-stilizado-semi-black cont-proys flex h-full min-w-full"
             >
               {proyects.map((proyectData, index) => {
@@ -57,7 +62,7 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           #proyects-section-container{
             margin-top: calc(${homeSectionHeight * 0.86}px);
             ${
-              homeSectionHeight < (window.innerHeight*0.6)
+              homeSectionHeight < window.innerHeight * 0.6
                 ? `
             height: ${homeSectionHeight}px;                        
             `
@@ -75,7 +80,9 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
           .cont-proys{
             scroll-snap-type: x  mandatory;
             ${
-              homeSectionHeight < (window.innerHeight*0.6) ? "overflow-x:scroll; padding:0 2% 1rem 2%;" : ""
+              homeSectionHeight < window.innerHeight * 0.6
+                ? "overflow-x:scroll; padding:0 2% 1rem 2%;"
+                : ""
             }
           }
 

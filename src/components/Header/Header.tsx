@@ -1,13 +1,16 @@
 import Logo from "../../../public/images/svg/Logo v2.svg";
 import { useEffect, useState } from "react";
 import NavBar from "../NavBar/NavBar";
-import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+// import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import LanguageSelect from "../LanguageSelect/LanguageSelect";
 import { setHeaderHeight } from "../../state/headerHeight/headerHeightSlice";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../store";
 
+
 const Header = () => {
+
+
   const [openedMenu, setOpenedMenu] = useState(false);
 
   const handdleOpenedMenu = () => {
@@ -83,21 +86,21 @@ const Header = () => {
         <NavBar className="justify-self-center sxs:hidden md:flex lg:flex md:w-[65%] -border-2 flex items-center justify-between md:text-[0.8rem] lg:text-[1.1rem]" />
 
         <div
-          className={`-border-2 self-center justify-self-end w-[68%] flex items-center sxs:justify-end md:justify-between max-md:h-[70%]`}
+          className={`-border-2 self-center justify-self-end w-[68%] flex items-center sxs:justify-end md:justify-end max-md:h-[70%]`}
         >
           {/* <button className="py-1 px-3 rounded-full bg-[#3951C2] text-white">Descargar CV</button> */}
 
-          <div className="overflow-hidden sxs:hidden md:flex bg-gray-300 py-[0.3vh] rounded-[0.8vw] px-1  items-center justify-center">
+          <div className="overflow-hidden sxs:hidden md:flex bg-gray-300 py-[0.3vh] rounded-[0.8vw] px-1  items-center justify-end">
             <LanguageSelect
               id="language1"
               className="-border-2 outline-none px-2 text-center bg-transparent cursor-pointer appearance-none shadow-none md:text-[0.8rem] lg:text-[1rem] xl:text-xl"
             />
           </div>
-
+{/* 
           <ThemeSwitcher
             id="theme1"
             className="sxs:hidden md:block w-[3.5rem] text-[1.1vw] aspect-[4/1.1] bg-gray-300 rounded-full relative cursor-pointer"
-          />
+          /> */}
 
           <button
             className={`aspect-square z-[102] border-2flex flex-col items-center justify-center  sxs:flex md:hidden sxs:w-1/3 sm:w-1/5 md:w-0 gap-[23%]`}
@@ -133,19 +136,19 @@ const Header = () => {
             handleOpenNavBar={setOpenedMenu}
           />
           <div className=" scrollbar-oculto flex items-center justify-around w-full portrait:h-[15%] landscape:h-[25%] border-t-[1px] border-[#ffffff50] portrait:mt-[15%] landscape:mt-[5%] overflow-hidden">
-            <div className=" bg-white py-[0.15rem] rounded-xl text-black">
+            <div className=" bg-white py-[0.15rem] rounded-xl text-black border-2">
               <LanguageSelect
                 id="language1"
                 className="outline-none bg-transparent cursor-pointer appearance-none shadow-none /border-2 px-4  sxs:text-[1.2rem] md:text-[1.3rem] xl:text-[1.4rem]"
               />
             </div>
 
-            <ThemeSwitcher
+            {/* <ThemeSwitcher
               id="theme2"
               className="w-[4.5rem] aspect-[4/1.1] text-[1.6rem] bg-gray-600 rounded-lg relative cursor-pointer"
               ballColor="white"
               iconColor="black"
-            />
+            /> */}
           </div>
         </div>
       </div>

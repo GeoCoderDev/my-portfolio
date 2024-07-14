@@ -2,6 +2,10 @@ import emailIcon from "./../../../public/images/svg/email-icon.svg";
 import whatsappIcon from "./../../../public/images/svg/whatsapp-icon.svg";
 import copyIcon from "./../../../public/images/svg/CopiarIcon.svg";
 import { ChangeEvent, useEffect, useState } from "react";
+import Loader from "../shared/Loader";
+import SuccessMessage from "../shared/SuccessMessage";
+import ErrorMessage from "../shared/ErrorMessage";
+import useI18n from "../../i18n";
 
 const API_SEND_EMAIL = "https://minimal-api-send-emails.vercel.app/sendMe";
 
@@ -64,9 +68,17 @@ const initialEmail: EmailData = {
 };
 
 const ContactSection = () => {
+  const { languageTexts } = useI18n();
+
   const [contactElementsHeight, setContactElementsHeight] = useState(200);
 
   const [emailData, setEmailData] = useState(initialEmail);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [errorMessage, setErrorMessage] = useState<string>();
+
+  const [successMessage, setSuccessMessage] = useState<string>();
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -98,7 +110,7 @@ const ContactSection = () => {
         <ContactSectionBackground />
 
         <h1 className="-border-2 text-white relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-white after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-          Contacto
+          {languageTexts?.["Titulo-Contact-Section"]}
         </h1>
 
         <div
@@ -110,6 +122,7 @@ const ContactSection = () => {
               e.preventDefault();
 
               try {
+                setIsLoading(true);
                 const resJSON = await fetch(API_SEND_EMAIL, {
                   method: "POST",
                   headers: {
@@ -123,23 +136,33 @@ const ContactSection = () => {
                   throw new Error(
                     `Server responded with status ${resJSON.status}`
                   );
+
+                setSuccessMessage(() => "Correcto-envio-formulario");
+                setTimeout(() => {
+                  setSuccessMessage(() => undefined);
+                }, 3000);
+                setIsLoading(false);
+                setEmailData(initialEmail);
               } catch (error) {
                 console.log(error);
-              } finally {
-                setEmailData(initialEmail);
+                setErrorMessage(() => "Error-envio-formulario");
+                setTimeout(() => {
+                  setErrorMessage(() => undefined);
+                }, 3000);
+                setIsLoading(false);
               }
             }}
             className="flex flex-col items-center flex-wrap gap-y-3 sxs:w-[80%] md:w-[50%] lg:w-[30%] text-white"
           >
             <p className="text-2xl text-center text-[1.3rem] italic">
-              ¡Contáctame desde aqui para empezar a trabajar juntos!
+              {languageTexts?.["Mensaje-Enviame-Un-Mensaje"]}
             </p>
 
             <label
               htmlFor="nameR"
               className="text-xl w-[90%] flex flex-wrap gap-y-2"
             >
-              Nombre:
+              {languageTexts?.["Nombre-field-name"]}:
               <input
                 id="nameR"
                 className="w-full text-black outline-none text-sm py-1 px-2  rounded-md"
@@ -155,7 +178,7 @@ const ContactSection = () => {
               htmlFor="correoR"
               className="text-xl w-[90%] flex flex-wrap gap-y-2"
             >
-              Tu Correo:
+              {languageTexts?.["Nombre-field-email"]}:
               <input
                 id="correoR"
                 className="w-full text-black outline-none text-sm py-1 px-2  rounded-md"
@@ -171,7 +194,7 @@ const ContactSection = () => {
               htmlFor="mensajeR"
               className="text-xl w-[90%] flex flex-wrap gap-y-2"
             >
-              Mensaje:
+              {languageTexts?.["Nombre-field-message"]}:
               <textarea
                 id="mensajeR"
                 rows={6}
@@ -185,8 +208,21 @@ const ContactSection = () => {
               ></textarea>
             </label>
 
-            <button className="bg-[#FF9900] mt-[0.5rem] text-[1.2rem] px-10 py-[0.1rem] rounded-md">
-              Enviar
+            {errorMessage && (
+              <ErrorMessage
+                message={(languageTexts?.[errorMessage] as string) ?? ""}
+              />
+            )}
+
+            {successMessage && (
+              <SuccessMessage
+                message={(languageTexts?.[successMessage] as string) ?? ""}
+              />
+            )}
+
+            <button className="bg-[#FF9900] mt-[0.5rem] text-[1.2rem] px-10 py-[0.1rem] rounded-md flex justify-center gap-4">
+              {languageTexts?.["Texto-Boton-Submit"]}{" "}
+              {isLoading && <Loader className="w-[20px] h-[10px]" />}
             </button>
           </form>
 
@@ -240,7 +276,7 @@ const ContactSection = () => {
 
               <a href="https://api.whatsapp.com/send?phone=51961863783">
                 <button className="shadow-xl flex items-center justify-center gap-x-3 bg-white px-3 py-1 rounded-md">
-                  Contactar
+                  {languageTexts?.["Texto-boton-contactar"]}
                 </button>
               </a>
             </div>
