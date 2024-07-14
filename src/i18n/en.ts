@@ -52,6 +52,8 @@ const englishTexts = {
   "Texto-boton-contactar": "Contact",
   "Error-envio-formulario": "An error occurred while submitting the form",
   "Correcto-envio-formulario": "Form submitted successfully",
+  "Texto-Desplegado": "Deployed",
+  "Texto-Repositorio": "Repository"
 };
 
 export default englishTexts;

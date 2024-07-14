@@ -101,14 +101,14 @@ const Proyect = ({
               {deployLink && (
                 <a href={deployLink}>
                   <button className="flex gap-[0.4rem] text-[#35E551] bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
-                    Desplegado
+                    {languagesTexts[language]["Texto-Desplegado"]}
                     <span className="bg-[#35E551] aspect-square h-[0.65rem] rounded-[50%]"></span>
                   </button>
                 </a>
               )}
               <a href={githubRepoLink}>
                 <button className="flex gap-[0.4rem] text-white bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
-                  Repositorio
+                  {languagesTexts[language]["Texto-Repositorio"]}
                   <img className="h-[1rem] aspect-auto" src={GithubLogo} />
                 </button>
               </a>
@@ -116,7 +116,7 @@ const Proyect = ({
               {githubRepoLink2 && (
                 <a href={githubRepoLink2}>
                   <button className="flex gap-[0.4rem] text-white bg-black text-[0.80rem] px-[0.62rem] py-1 rounded-[0.3rem] items-center">
-                    Repositorio 2
+                    {languagesTexts[language]["Texto-Repositorio"]} 2
                     <img className="h-[1rem] aspect-auto" src={GithubLogo} />
                   </button>
                 </a>

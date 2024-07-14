@@ -52,6 +52,8 @@ const spanishTexts = {
   "Texto-boton-contactar": "Contactar",
   "Error-envio-formulario": "Ocurrio un error al enviar el formulario",
   "Correcto-envio-formulario": "Formulario enviado correctamente",
+  "Texto-Desplegado": "Desplegado",
+  "Texto-Repositorio": "Repositorio",
 };
 
 export default spanishTexts;
