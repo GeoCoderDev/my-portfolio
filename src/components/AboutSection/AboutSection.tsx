@@ -1,7 +1,8 @@
 import Arrow_Down from "../../../public/images/svg/Flecha hacia abajo.svg";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import useI18n from "../../i18n";
+
+import languagesTexts from "../../i18n";
 
 const Fondo = () => (
   <svg
@@ -35,7 +36,7 @@ const Fondo = () => (
 );
 
 const AboutSection = () => {
-  const { languageTexts } = useI18n();
+  const language = useSelector((state: RootState) => state.language);
 
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
@@ -66,17 +67,17 @@ const AboutSection = () => {
           className="z-[16] -border-2 flex flex-col items-center justify-center max-sm:gap-4 gap-6 pt-6 relative self-stretch overflow-auto "
         >
           <h1 className="-border-2 text-white max-sm:text-3xl text-4xl md:self-start ">
-            {languageTexts?.["Titulo-About-Section"] ?? ""}
+            {languagesTexts[language]["Titulo-About-Section"] ?? ""}
           </h1>
 
           <p
             id="text-about-description"
             className="scrollbar-stilizado scrollbar-stilizado-white overflow-auto text-white max-sm:text-center text-start sxs:text-[0.77rem] md:text-[0.9rem] max-w-[95%] md:max-w-[85%] md:self-start pr-[0.85rem]"
           >
-            {languageTexts?.["Parrafo 1 - About Section"] ?? ""}
+            {languagesTexts[language]["Parrafo 1 - About Section"] ?? ""}
             <br />
             <br />
-            {languageTexts?.["Parrafo 2 - About Section"] ?? ""}
+            {languagesTexts[language]["Parrafo 2 - About Section"] ?? ""}
           </p>
 
           <a
@@ -86,7 +87,7 @@ const AboutSection = () => {
             download={true}
           >
             <button className="text-center text-[1rem] md:text-[1.1rem] bg-white text-black px-3 rounded-md flex items-center transition-all duration-75 py-1 ">
-              {languageTexts?.["Texto-boton-descarga-CV"] ?? ""}
+              {languagesTexts[language]["Texto-boton-descarga-CV"] ?? ""}
               <img
                 className="h-1/2 aspect-square object-contain ml-2 transition-all duration-75"
                 src={Arrow_Down}

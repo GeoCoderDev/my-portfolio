@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { allTechIconsArray } from "../../assets/TechIconsData/TechIconsData";
 import { useEffect, useState } from "react";
-import useI18n from "../../i18n";
+import languagesTexts from "../../i18n";
 
 const SkillsBackground = () => {
   return (
@@ -37,8 +37,7 @@ const SkillsBackground = () => {
 };
 
 const SkillsSection = () => {
-
-  const {languageTexts} = useI18n();
+  const language = useSelector((state: RootState) => state.language);
 
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
@@ -71,7 +70,7 @@ const SkillsSection = () => {
       >
         <SkillsBackground />
         <h1 className="relative text-white max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[30%] after:bg-white after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-          {languageTexts?.["Titulo-Skills-Section"]}
+          {languagesTexts[language]["Titulo-Skills-Section"]}
         </h1>
         <div
           id="cont-skills"
@@ -108,8 +107,8 @@ const SkillsSection = () => {
         #skills-section{
           margin-top: ${
             backgroundProyectsHeight > homeSectionHeight
-            ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
-            : homeSectionHeight * 0.2
+              ? (backgroundProyectsHeight - homeSectionHeight) * 1.5
+              : homeSectionHeight * 0.2
           }px;          
         }
       }

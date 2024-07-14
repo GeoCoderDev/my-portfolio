@@ -5,7 +5,9 @@ import { ChangeEvent, useEffect, useState } from "react";
 import Loader from "../shared/Loader";
 import SuccessMessage from "../shared/SuccessMessage";
 import ErrorMessage from "../shared/ErrorMessage";
-import useI18n from "../../i18n";
+import { RootState } from "../../store";
+import { useSelector } from "react-redux";
+import languagesTexts from "../../i18n";
 
 const API_SEND_EMAIL = "https://minimal-api-send-emails.vercel.app/sendMe";
 
@@ -68,7 +70,7 @@ const initialEmail: EmailData = {
 };
 
 const ContactSection = () => {
-  const { languageTexts } = useI18n();
+  const language = useSelector((state: RootState) => state.language);
 
   const [contactElementsHeight, setContactElementsHeight] = useState(200);
 
@@ -110,7 +112,7 @@ const ContactSection = () => {
         <ContactSectionBackground />
 
         <h1 className="-border-2 text-white relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-white after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-          {languageTexts?.["Titulo-Contact-Section"]}
+          {languagesTexts[language]["Titulo-Contact-Section"]}
         </h1>
 
         <div
@@ -155,14 +157,14 @@ const ContactSection = () => {
             className="flex flex-col items-center flex-wrap gap-y-3 sxs:w-[80%] md:w-[50%] lg:w-[30%] text-white"
           >
             <p className="text-2xl text-center text-[1.3rem] italic">
-              {languageTexts?.["Mensaje-Enviame-Un-Mensaje"]}
+              {languagesTexts[language]["Mensaje-Enviame-Un-Mensaje"]}
             </p>
 
             <label
               htmlFor="nameR"
               className="text-xl w-[90%] flex flex-wrap gap-y-2"
             >
-              {languageTexts?.["Nombre-field-name"]}:
+              {languagesTexts[language]["Nombre-field-name"]}:
               <input
                 id="nameR"
                 className="w-full text-black outline-none text-sm py-1 px-2  rounded-md"
@@ -178,7 +180,7 @@ const ContactSection = () => {
               htmlFor="correoR"
               className="text-xl w-[90%] flex flex-wrap gap-y-2"
             >
-              {languageTexts?.["Nombre-field-email"]}:
+              {languagesTexts[language]["Nombre-field-email"]}:
               <input
                 id="correoR"
                 className="w-full text-black outline-none text-sm py-1 px-2  rounded-md"
@@ -194,7 +196,7 @@ const ContactSection = () => {
               htmlFor="mensajeR"
               className="text-xl w-[90%] flex flex-wrap gap-y-2"
             >
-              {languageTexts?.["Nombre-field-message"]}:
+              {languagesTexts[language]["Nombre-field-message"]}:
               <textarea
                 id="mensajeR"
                 rows={6}
@@ -210,18 +212,24 @@ const ContactSection = () => {
 
             {errorMessage && (
               <ErrorMessage
-                message={(languageTexts?.[errorMessage] as string) ?? ""}
+                message={
+                  (languagesTexts[language][
+                    "Error-envio-formulario"
+                  ] as string) ?? ""
+                }
               />
             )}
 
             {successMessage && (
               <SuccessMessage
-                message={(languageTexts?.[successMessage] as string) ?? ""}
+                message={
+                  languagesTexts[language]["Correcto-envio-formulario"] ?? ""
+                }
               />
             )}
 
             <button className="bg-[#FF9900] mt-[0.5rem] text-[1.2rem] px-10 py-[0.1rem] rounded-md flex justify-center gap-4">
-              {languageTexts?.["Texto-Boton-Submit"]}{" "}
+              {languagesTexts[language]["Texto-Boton-Submit"]}{" "}
               {isLoading && <Loader className="w-[20px] h-[10px]" />}
             </button>
           </form>
@@ -276,7 +284,7 @@ const ContactSection = () => {
 
               <a href="https://api.whatsapp.com/send?phone=51961863783">
                 <button className="shadow-xl flex items-center justify-center gap-x-3 bg-white px-3 py-1 rounded-md">
-                  {languageTexts?.["Texto-boton-contactar"]}
+                  {languagesTexts[language]["Texto-boton-contactar"]}
                 </button>
               </a>
             </div>

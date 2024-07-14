@@ -1,10 +1,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import Study, { StudyProps } from "../Study/Study";
-import useI18n from "../../i18n";
+
+import languagesTexts from "../../i18n";
 
 const StudiesSection = ({ studies }: { studies: StudyProps[] }) => {
-  const { languageTexts } = useI18n();
+  const language = useSelector((state: RootState) => state.language);
 
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
@@ -17,7 +18,7 @@ const StudiesSection = ({ studies }: { studies: StudyProps[] }) => {
         className="w-full max-w-screen-xl -border-2 mt-[3rem] mb-[2.5rem] flex items-center justify-center flex-col gap-y-[2.5rem] flex-wrap"
       >
         <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[50%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-          {languageTexts?.["Titulo-Studies-Section"]}
+          {languagesTexts[language]["Titulo-Studies-Section"]}
         </h1>
 
         <div className="sxs:w-[92%] md:w-[90%] lg:w-[60%] -border-2 h-[75%] flex flex-col items-center justify-start overflow-hidden relative ">

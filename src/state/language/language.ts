@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { LanguageAvailable } from "../../interfaces/LanguageAvailable";
 import { ReduxPayload } from "../../interfaces/ReduxPayload";
 
-const initialState: LanguageAvailable = "ES";
+const initialState: LanguageAvailable = "es";
 
 const language = createSlice({
   name: "language",

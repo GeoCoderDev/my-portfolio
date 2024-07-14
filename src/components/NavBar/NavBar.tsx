@@ -1,4 +1,7 @@
-import useI18n from "../../i18n";
+import { useSelector } from "react-redux";
+
+import { RootState } from "../../store";
+import languagesTexts from "../../i18n";
 
 const NavBar = ({
   className,
@@ -7,7 +10,7 @@ const NavBar = ({
   className: string;
   handleOpenNavBar?: (arg: boolean) => void;
 }) => {
-  const { languageTexts } = useI18n();
+  const language = useSelector((state: RootState) => state.language);
 
   return (
     <ul
@@ -17,21 +20,23 @@ const NavBar = ({
       }}
     >
       <a href="#home-section">
-        <li className="cursor-pointer">{languageTexts?.["Titulo-Home"]}</li>
+        <li className="cursor-pointer">
+          {languagesTexts[language]["Titulo-Home"]}
+        </li>
       </a>
       <a href="#about-section">
         <li className="cursor-pointer">
-          {languageTexts?.["Titulo-About-Section"]}
+          {languagesTexts[language]["Titulo-About-Section"]}
         </li>
       </a>
       <a href="#proyects-section">
         <li className="cursor-pointer">
-          {languageTexts?.["Titulo-Proyects-Section"]}
+          {languagesTexts[language]["Titulo-Proyects-Section"]}
         </li>
       </a>
       <a href="#contact-section">
         <li className="cursor-pointer">
-          {languageTexts?.["Titulo-Contact-Section"]}
+          {languagesTexts[language]["Titulo-Contact-Section"]}
         </li>
       </a>
     </ul>

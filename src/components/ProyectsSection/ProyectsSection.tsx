@@ -4,10 +4,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { BackgroundColourBalls } from "../BackgroundBalls/BackgroundBalls";
-import useI18n from "../../i18n";
+import languagesTexts from "../../i18n";
 
 const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
-  const { languageTexts } = useI18n();
+  const language = useSelector((state: RootState) => state.language);
 
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
@@ -39,7 +39,7 @@ const ProyectsSection = ({ proyects }: { proyects: ProyectProps[] }) => {
         >
           <BackgroundColourBalls className="absolute" />
           <h1 className="relative max-sm:text-3xl text-4xl after:content-[''] after:h-[0.37rem] after:w-[40%] after:bg-black after:absolute after:bottom-[-35%] after:rounded-full after:-translate-x-1/2 after:left-1/2">
-            {languageTexts?.["Titulo-Proyects-Section"] ?? ""}
+            {languagesTexts[language]["Titulo-Proyects-Section"] ?? ""}
           </h1>
           <div className="-border-2 w-full max-md:h-[80%] h-[72.5%] overflow-hidden flex">
             <motion.div

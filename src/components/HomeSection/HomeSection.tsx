@@ -4,7 +4,7 @@ import Glow from "../Glow/Glow";
 import { AppDispatch, RootState } from "../../store";
 import { useEffect } from "react";
 import { setHomeSectionHeight } from "../../state/homeSectionHeight/homeSectionHeightSlice";
-import useI18n from "../../i18n";
+import languagesTexts from "../../i18n";
 
 const factorDeCrecimiento = 1.2;
 
@@ -14,8 +14,6 @@ const HomeSection = () => {
   const homeSectionHeight = useSelector(
     (state: RootState) => state.homeSectionHeight
   );
-
-  const { languageTexts } = useI18n();
 
   useEffect(() => {
     const homeSection = document.getElementById("home-section");
@@ -45,6 +43,7 @@ const HomeSection = () => {
   }, []);
 
   const headerHeight = useSelector((state: RootState) => state.headerHeight);
+  const language = useSelector((state: RootState) => state.language);
 
   return (
     <>
@@ -63,7 +62,7 @@ const HomeSection = () => {
 
         <div className="flex items-center md:items-start justify-center gap-3 lg:gap-5 xl:gap-8 flex-col -border-2 order-2">
           <h1 className="text-[1.9rem] leading-8 lg:text-5xl xl:text-6xl -border-2 text-center">
-            {languageTexts?.["Primer Saludo"] ?? ""}
+            {languagesTexts[language]["Primer Saludo"] ?? ""}
           </h1>
           <h1 className="text-[1.9rem] leading-8 lg:text-5xl xl:text-6xl -border-2 text-cerulean-blue-700 text-center">
             JUAN CHAVEZ
